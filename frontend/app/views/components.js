@@ -26,6 +26,7 @@ export const PrimaryButton = ({ title, onClick }) => {
 
 export const TextView = styled(Text)`
     font-size: ${props => props.fontSize || 14}px;
+    font-weight: ${props => props.weight || "normal"};
     color: ${props => props.color || colors.default};
 `
 
@@ -44,7 +45,7 @@ export const DefaultHeader = ({ title, moveBack }) => {
     )
 }
 
-export const _HeaderLayout = styled(View)`
+const _HeaderLayout = styled(View)`
     flex-direction: row;
     padding-horizontal: 10px;
     padding-vertical: 5px;
@@ -53,11 +54,28 @@ export const _HeaderLayout = styled(View)`
     border-bottom-width: 1px;
 `
 
-export const _HeaderTitle = styled(View)`
+const _HeaderTitle = styled(View)`
     flex: 1;
     justify-content: center;
 `
 
-export const _HeaderBackButton = styled(TouchableOpacity)`
+const _HeaderBackButton = styled(TouchableOpacity)`
     padding: 10px;
+`
+
+export const LabelValueView = ({ label, value }) => {
+    return (
+        <_LabelValueViewContainer style={{ marginTop: 20}}>
+            <TextView>{label}</TextView>
+            <TextView>{value}</TextView>
+        </_LabelValueViewContainer>
+    )
+}
+
+const _LabelValueViewContainer = styled(View)`
+    flex-direction: row;
+    justify-content: space-between;
+    padding-vertical: 15px;
+    border-bottom-color: #eee;
+    border-bottom-width: 1px;
 `

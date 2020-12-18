@@ -12,6 +12,7 @@ import ProvideLiquidityScreen from './app/views/ProvideLiquidityScreen';
 import RegisterInsuranceScreen from './app/views/RegisterInsuranceScreen';
 import SplashScreen from './app/views/SplashScreen';
 import ProvideConfirmScreen from './app/views/ProvideConfirmScreen';
+import ProvideCompleteScreen from './app/views/ProvideCompleteScreen';
 
 const Stack = createStackNavigator();
 
@@ -31,6 +32,7 @@ const App = () => {
           <Stack.Screen name="HomeDetail" component={HomeDetailScreen} />
           <Stack.Screen name="ProvideLiquidity" component={ProvideLiquidityScreen} />
           <Stack.Screen name="ProvideConfirm" component={ProvideConfirmScreen} />
+          <Stack.Screen name="ProvideComplete" component={ProvideCompleteScreen} />
           <Stack.Screen name="RegisterInsurance" component={RegisterInsuranceScreen} />
 
         </Stack.Navigator>

@@ -4,12 +4,16 @@ import { Card } from '@ui-kitten/components';
 
 import { StatusBar, SafeAreaView, View, TouchableOpacity } from 'react-native';
 import styled from 'styled-components'
-import { DefaultHeader, PrimaryButton, TextView } from './components'
+import { DefaultHeader, PrimaryButton, TextView, LabelValueView } from './components'
 import { styles } from '../common/styles';
 import colors from '../common/colors';
 
 const ProvideConfirmScreen = () => {
     const navigation = useNavigation();
+
+    const moveToNext = () => {
+        navigation.navigate("ProvideComplete")
+    }
     
     return (
         <>
@@ -29,8 +33,13 @@ const ProvideConfirmScreen = () => {
                                 </PriceView>
                             </CardBody>
                         </Card>
+                        <LabelValueView label={"참여 비용"} value={"300 LN"}/>
+                        <LabelValueView label={"APY"} value={"25%"}/>
+                        <View style={styles.center}>
+                            <TextView style={styles.mt3} color={colors.gray}>유동성 공급자의 자산은 1년간 출금이 불가능 합니다</TextView>
+                        </View>
                     </View>
-                    <PrimaryButton title={"다음"} />
+                    <PrimaryButton title={"다음"} onClick={moveToNext} />
                 </View>
             </SafeAreaView>
         </>
