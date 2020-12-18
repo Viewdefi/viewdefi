@@ -26,7 +26,6 @@ export const PrimaryButton = ({ title, onClick }) => {
 
 export const TextView = styled(Text)`
     font-size: ${props => props.fontSize || 14}px;
-    font-weight: bold;
     color: ${props => props.color || colors.default};
 `
 

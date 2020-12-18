@@ -1,13 +1,19 @@
 import React from 'react'
 import { useNavigation } from '@react-navigation/native';
+import { Card } from '@ui-kitten/components';
 
-import { StatusBar, SafeAreaView, View } from 'react-native';
+import { StatusBar, SafeAreaView, View, TouchableOpacity } from 'react-native';
 import styled from 'styled-components'
 import { DefaultHeader, PrimaryButton, TextView } from './components'
 import { styles } from '../common/styles';
+import colors from '../common/colors';
 
 const ProvideLiquidityScreen = () => {
     const navigation = useNavigation();
+
+    const moveToNext = () => {
+        navigation.navigate("ProvideConfirm")
+    }
     
     return (
         <>
@@ -15,11 +21,85 @@ const ProvideLiquidityScreen = () => {
             <SafeAreaView style={styles.container}>
                 <DefaultHeader title={"유동성 참여하기"} moveBack={"HomeDetail"} />
                 <View style={styles.wrapper}>
-                    <PrimaryButton title={"다음"} />
+                    <View style={styles.container}>
+                        <Card>
+                            <CardBody>
+                                <InfoView>
+                                    <TextView color={colors.success}>tlink1c30...r5px</TextView>
+                                    <TextView> 님의 보유자산</TextView>
+                                </InfoView>
+                                <PriceView>
+                                    <TextView fontSize={24}>4500 LN</TextView>
+                                </PriceView>
+                            </CardBody>
+                        </Card>
+                        <EnteredPriceView>
+                            <TextView fontSize={20} color={colors.gray}>금액입력</TextView>
+                        </EnteredPriceView>
+                        <NumberPad>
+                            <NumPadRow>
+                                <NumPad><TextView color={colors.gray} fontSize={20}>1</TextView></NumPad>
+                                <NumPad><TextView color={colors.gray} fontSize={20}>2</TextView></NumPad>
+                                <NumPad><TextView color={colors.gray} fontSize={20}>3</TextView></NumPad>
+                            </NumPadRow>
+                            <NumPadRow>
+                                <NumPad><TextView color={colors.gray} fontSize={20}>4</TextView></NumPad>
+                                <NumPad><TextView color={colors.gray} fontSize={20}>5</TextView></NumPad>
+                                <NumPad><TextView color={colors.gray} fontSize={20}>6</TextView></NumPad>
+                            </NumPadRow>
+                            <NumPadRow>
+                                <NumPad><TextView color={colors.gray} fontSize={20}>7</TextView></NumPad>
+                                <NumPad><TextView color={colors.gray} fontSize={20}>8</TextView></NumPad>
+                                <NumPad><TextView color={colors.gray} fontSize={20}>9</TextView></NumPad>
+                            </NumPadRow>
+                            <NumPadRow>
+                                <NumPad><TextView color={colors.gray} fontSize={20}> </TextView></NumPad>
+                                <NumPad><TextView color={colors.gray} fontSize={20}>0</TextView></NumPad>
+                                <NumPad><TextView color={colors.gray} fontSize={20}> </TextView></NumPad>
+                            </NumPadRow>
+                        </NumberPad>
+                    </View>
+                    <PrimaryButton title={"다음"} onClick={() => moveToNext() } />
                 </View>
             </SafeAreaView>
         </>
     )
 }
+
+const CardBody = styled(View)`
+    height: 80px;
+    flex-direction: row;
+`
+
+const InfoView = styled(View)`
+    flex: 1;
+    flex-direction: row;
+`
+
+const PriceView = styled(View)`
+    flex: 1;
+    align-items: flex-end;
+    justify-content: flex-end;
+`
+
+const EnteredPriceView = styled(View)`
+    align-items: center;
+    padding-vertical: 70px;
+`
+
+const NumberPad = styled(View)`
+    flex: 1;
+`
+
+const NumPadRow = styled(View)`
+    flex-direction: row;
+`
+
+const NumPad = styled(TouchableOpacity)`
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+`
 
 export default ProvideLiquidityScreen
