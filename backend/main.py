@@ -10,8 +10,9 @@ class Viewdefi:
     def __init__(
         self,
         owner: dict,
-        config: dict
+        govConfig: dict,
+        linkConfig: dict
     ):
         self.owner = owner
-        self.st = ServiceToken(owner, config)
-        self.config = config
+        self.govST = ServiceToken(owner, govConfig)
+        self.lnST = ServiceToken(owner, linkConfig)
