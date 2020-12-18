@@ -13,6 +13,7 @@ import RegisterInsuranceScreen from './app/views/RegisterInsuranceScreen';
 import SplashScreen from './app/views/SplashScreen';
 import ProvideConfirmScreen from './app/views/ProvideConfirmScreen';
 import ProvideCompleteScreen from './app/views/ProvideCompleteScreen';
+import { RecoilRoot } from 'recoil';
 
 const Stack = createStackNavigator();
 
@@ -22,22 +23,24 @@ const App = () => {
   }, []) 
 
   return (
-    <ApplicationProvider {...eva} theme={eva.light}>
-      <NavigationContainer>
-        <Stack.Navigator screenOptions={{
-            headerShown: false
-          }}>
-          <Stack.Screen name="Splash" component={SplashScreen} />
-          <Stack.Screen name="Home" component={HomeScreen} />
-          <Stack.Screen name="HomeDetail" component={HomeDetailScreen} />
-          <Stack.Screen name="ProvideLiquidity" component={ProvideLiquidityScreen} />
-          <Stack.Screen name="ProvideConfirm" component={ProvideConfirmScreen} />
-          <Stack.Screen name="ProvideComplete" component={ProvideCompleteScreen} />
-          <Stack.Screen name="RegisterInsurance" component={RegisterInsuranceScreen} />
+    <RecoilRoot>
+      <ApplicationProvider {...eva} theme={eva.light}>
+        <NavigationContainer>
+          <Stack.Navigator screenOptions={{
+              headerShown: false
+            }}>
+            <Stack.Screen name="Splash" component={SplashScreen} />
+            <Stack.Screen name="Home" component={HomeScreen} />
+            <Stack.Screen name="HomeDetail" component={HomeDetailScreen} />
+            <Stack.Screen name="ProvideLiquidity" component={ProvideLiquidityScreen} />
+            <Stack.Screen name="ProvideConfirm" component={ProvideConfirmScreen} />
+            <Stack.Screen name="ProvideComplete" component={ProvideCompleteScreen} />
+            <Stack.Screen name="RegisterInsurance" component={RegisterInsuranceScreen} />
 
-        </Stack.Navigator>
-      </NavigationContainer>
-    </ApplicationProvider>
+          </Stack.Navigator>
+        </NavigationContainer>
+      </ApplicationProvider>
+    </RecoilRoot>
   );
 };
 

@@ -1,4 +1,5 @@
 import React from 'react'
+import { useRecoilState } from 'recoil';
 import { useNavigation } from '@react-navigation/native';
 import { Card } from '@ui-kitten/components';
 
@@ -7,9 +8,12 @@ import styled from 'styled-components'
 import { DefaultHeader, PrimaryButton, TextView, LabelValueView } from './components'
 import { styles } from '../common/styles';
 import colors from '../common/colors';
+import { providerState } from '../states';
+
 
 const ProvideConfirmScreen = () => {
     const navigation = useNavigation();
+    const [state, setState] = useRecoilState(providerState)
 
     const moveToNext = () => {
         navigation.navigate("ProvideComplete")
@@ -33,7 +37,7 @@ const ProvideConfirmScreen = () => {
                                 </PriceView>
                             </CardBody>
                         </Card>
-                        <LabelValueView label={"참여 비용"} value={"300 LN"}/>
+                        <LabelValueView label={"참여 비용"} value={state.num + " LN"}/>
                         <LabelValueView label={"APY"} value={"25%"}/>
                         <View style={styles.center}>
                             <TextView style={styles.mt3} color={colors.gray}>유동성 공급자의 자산은 1년간 출금이 불가능 합니다</TextView>
