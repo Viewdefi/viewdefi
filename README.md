@@ -14,9 +14,8 @@ TO-DO
 * React Native - 빠른 데모 앱 개발을 위해 대표적인 하이브리드 앱 개발 도구인 React Native를 이용했습니다.
 
 📒 백-엔드
-* Golang
-* Gin (Web Server Framework)
-* MongoDB
+* Python 3
+* Flask web framework - Node.js와 같은 스타일로 조립형으로 손쉽게 이용 가능한 웹 서버를 이용했습니다.
 
 📒 블록체인
 * [Line Blockchain Developers API](https://docs-blockchain.line.biz/overview/)
