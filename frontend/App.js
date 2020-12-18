@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import * as eva from '@eva-design/eva';
+import { ApplicationProvider, Layout, Text } from '@ui-kitten/components';
 
 import Icon from 'react-native-vector-icons/Ionicons'
 
@@ -18,16 +20,20 @@ const App = () => {
   }, []) 
 
   return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Splash" component={SplashScreen} />
-        <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="HomeDetail" component={HomeDetailScreen} />
-        <Stack.Screen name="ProvideLiquidityScreen" component={ProvideLiquidityScreen} />
-        <Stack.Screen name="RegisterInsuranceScreen" component={RegisterInsuranceScreen} />
+    <ApplicationProvider {...eva} theme={eva.light}>
+      <NavigationContainer>
+        <Stack.Navigator screenOptions={{
+            headerShown: false
+          }}>
+          <Stack.Screen name="Splash" component={SplashScreen} />
+          <Stack.Screen name="Home" component={HomeScreen} />
+          <Stack.Screen name="HomeDetail" component={HomeDetailScreen} />
+          <Stack.Screen name="ProvideLiquidity" component={ProvideLiquidityScreen} />
+          <Stack.Screen name="RegisterInsurance" component={RegisterInsuranceScreen} />
 
-      </Stack.Navigator>
-    </NavigationContainer>
+        </Stack.Navigator>
+      </NavigationContainer>
+    </ApplicationProvider>
   );
 };
 

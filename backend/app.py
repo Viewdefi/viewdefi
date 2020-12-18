@@ -12,23 +12,29 @@ def index():
 # fetch all locations api
 @app.route('/all_locations', methods=['GET'])
 def fetchAllLocations():
-    return json.dumps([{
-        "lat": 37.5120885,
-        "lng": 127.0179846,
-        "name": "논현 1동"
-    }, {
-        "lat": 37.5012113,
-        "lng": 127.0334121,
-        "name": "역삼동"
-    }, {
-        "lat": 37.5067738,
-        "lng": 127.0776962,
-        "name": "잠실동"
-    }, {
-        "lat": 37.4686291,
-        "lng": 127.0185656,
-        "name": "대흥동"
-    }])
+    return json.dumps({
+        "data": [{
+            "lat": 37.5120885,
+            "lng": 127.0179846,
+            "name": "논현 1동",
+            "price": 419.10
+        }, {
+            "lat": 37.5012113,
+            "lng": 127.0334121,
+            "name": "역삼동",
+            "price": 411.10
+        }, {
+            "lat": 37.5067738,
+            "lng": 127.0776962,
+            "name": "잠실동",
+            "price": 454.10
+        }, {
+            "lat": 37.4686291,
+            "lng": 127.0185656,
+            "name": "대흥동",
+            "price": 323.10
+        }]
+    })
 
 # current balance of link
 @app.route('/wallet/link/balance/<address>', methods=['GET'])

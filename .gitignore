@@ -8,5 +8,6 @@ bin/
 venv
 __pycache__
 
-backend/config.json
+backend/gov_config.json
+backend/link_config.json
 backend/users.json
