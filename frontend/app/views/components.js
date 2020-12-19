@@ -67,7 +67,7 @@ export const LabelValueView = ({ label, value }) => {
     return (
         <_LabelValueViewContainer style={{ marginTop: 20}}>
             <TextView>{label}</TextView>
-            <TextView>{value}</TextView>
+            <TextView color={colors.success} weight={'bold'}>{value}</TextView>
         </_LabelValueViewContainer>
     )
 }

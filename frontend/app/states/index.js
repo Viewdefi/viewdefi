@@ -7,3 +7,10 @@ export const providerState = atom({
         num: ""
     }
 })
+
+export const locationState = atom({
+    key: "location",
+    default: {
+        
+    }
+})

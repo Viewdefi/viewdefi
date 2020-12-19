@@ -8,9 +8,12 @@ import styled from 'styled-components'
 import { PrimaryButton, TextView, DefaultHeader } from './components'
 import colors from '../common/colors'
 import { styles } from '../common/styles';
+import { useRecoilState } from 'recoil';
+import { locationState } from '../states';
 
 const HomeDetailScreen = () => {
     const navigation = useNavigation()
+    const [location, setLocation] = useRecoilState(locationState)
     const [data, setData] = useState([])
 
     useEffect(() => {
@@ -30,16 +33,16 @@ const HomeDetailScreen = () => {
                 <DefaultHeader title={"지역 정보"} moveBack={"Home"} />
                 <Wrapper>
                     <BodyWrapper>
-                        <TextView color={colors.primary}>대한민국 서울특별시 강남구 역삼동</TextView>
+                        <TextView color={colors.primary}>{ location.fullName }</TextView>
                         <Card style={{ marginTop: 20 }}>
                             <CardBody>
                                 <InfoView>
-                                    <TextView>청담동</TextView>
+                                    <TextView>{ location.name }</TextView>
                                     <TextView style={{ marginTop: 5 }}>현재 시세 지수</TextView>
                                     <DefaultButton size='small' status='basic'>히스토리 보기</DefaultButton>
                                 </InfoView>
                                 <PriceView>
-                                    <TextView color={colors.danger} fontSize={18}>494.21</TextView>
+                                    <TextView color={colors.danger} fontSize={18}>{ location.price }</TextView>
                                 </PriceView>
                             </CardBody>
                             <View style={{ height: 120, flexDirection: 'row' }}>

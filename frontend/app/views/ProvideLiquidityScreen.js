@@ -1,5 +1,5 @@
 import React from 'react'
-import { useRecoilState, useRecoilStateLoadable } from 'recoil'
+import { useRecoilState } from 'recoil'
 import { useNavigation } from '@react-navigation/native';
 import { Card } from '@ui-kitten/components';
 
@@ -8,7 +8,7 @@ import styled from 'styled-components'
 import { DefaultHeader, PrimaryButton, TextView } from './components'
 import { styles } from '../common/styles';
 import colors from '../common/colors';
-import { providerState } from '../states'
+import { locationState, providerState } from '../states'
 import Icon from 'react-native-vector-icons/Ionicons'
 
 const ProvideLiquidityScreen = () => {
