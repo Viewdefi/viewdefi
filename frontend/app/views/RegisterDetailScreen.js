@@ -71,7 +71,7 @@ const RegisterDetailScreen = () => {
                         <LabelValueView label={"현재 풀"} value={"500 억원"}/>
                         <LabelValueView label={"공급자 수"} value={"573 명"} />
                     </BodyWrapper>
-                    <SuccessButton title={"보험 가입하기"} onClick={() => navigation.navigate("ProvideLiquidity") } />
+                    <SuccessButton title={"보험 가입하기"} onClick={() => navigation.navigate("RegisterInsurance") } />
                 </Wrapper>
             </SafeAreaView>
         </>
