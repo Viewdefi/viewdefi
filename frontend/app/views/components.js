@@ -5,7 +5,7 @@ import Icon from 'react-native-vector-icons/Ionicons'
 import { useNavigation } from '@react-navigation/native';
 import colors from '../common/colors';
 
-export const _PrimaryButton = styled(TouchableOpacity)`
+const _PrimaryButton = styled(TouchableOpacity)`
     background-color: ${colors.success};
     color: #fff;
     align-items: center;
@@ -21,6 +21,25 @@ export const PrimaryButton = ({ title, onClick }) => {
             activeOpacity={0.8}>
             <TextView color={colors.light}>{title}</TextView>
         </_PrimaryButton>
+    )
+}
+
+const _SuccessButton = styled(TouchableOpacity)`
+    background-color: ${colors.primary};
+    color: #fff;
+    align-items: center;
+    justify-content: center;
+    padding-vertical: 15px;
+    border-radius: 10px;
+`
+
+export const SuccessButton = ({ title, onClick }) => {
+    return (
+        <_SuccessButton 
+            onPress={onClick} 
+            activeOpacity={0.8}>
+            <TextView color={colors.light}>{title}</TextView>
+        </_SuccessButton>
     )
 }
 
@@ -65,9 +84,9 @@ const _HeaderBackButton = styled(TouchableOpacity)`
 
 export const LabelValueView = ({ label, value }) => {
     return (
-        <_LabelValueViewContainer style={{ marginTop: 20}}>
+        <_LabelValueViewContainer style={{ marginTop: 15}}>
             <TextView>{label}</TextView>
-            <TextView color={colors.success} weight={'bold'}>{value}</TextView>
+            <TextView weight={'bold'}>{value}</TextView>
         </_LabelValueViewContainer>
     )
 }

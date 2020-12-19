@@ -19,7 +19,7 @@ const HomeScreen = () => {
     const [currentLocation, setCurrentLocation] = useRecoilState(locationState)
     const [activeIndex, setActiveIndex] = useState(0);
     const [locations, setLocations] = useState([]);
-    const [isProivder, setIsProvider] = useState(true);
+    const [isProvider, setIsProvider] = useState(true);
 
     useEffect(() => {
         fetchLocations().then(res => {
@@ -30,7 +30,11 @@ const HomeScreen = () => {
 
     const selectLocation = () => {
         setCurrentLocation(locations[activeIndex])
-        navigation.navigate("HomeDetail")
+        if(isProvider) {
+            navigation.navigate("HomeDetail")
+        } else {
+            navigation.navigate("RegisterDetail")
+        }
     }
 
     const RenderMarkerView = () => {
@@ -61,20 +65,27 @@ const HomeScreen = () => {
                 <SearchContainer>
                     <Icon name={'ios-search-outline'} size={20} color={"#aaa"} />
                 </SearchContainer>
+                <MyBtnContainer>
+                    <MyBtn 
+                        onPress={() => navigation.navigate("MyPortfolio")}
+                        activeOpacity={0.8}>
+                        <TextView fontSize={12}>포트폴리오</TextView>
+                    </MyBtn>
+                </MyBtnContainer>
                 <RoleBtnContainer>
                     <RoleBtn 
                         role={'provider'} 
-                        active={isProivder} 
+                        active={isProvider} 
                         onPress={() => setIsProvider(true)}
                         activeOpacity={0.8}>
-                        <TextView color={isProivder ? "#fff" : "#333"} fontSize={12}>공급자</TextView>
+                        <TextView color={isProvider ? "#fff" : "#333"} fontSize={12}>공급자</TextView>
                     </RoleBtn>
                     <RoleBtn 
                         role={'register'} 
-                        active={!isProivder} 
+                        active={!isProvider} 
                         onPress={() => setIsProvider(false)}
                         activeOpacity={0.8}>
-                        <TextView color={!isProivder ? "#fff" : "#333"} fontSize={12}>가입자</TextView>
+                        <TextView color={!isProvider ? "#fff" : "#333"} fontSize={12}>가입자</TextView>
                     </RoleBtn>
                 </RoleBtnContainer>
                 {
@@ -150,6 +161,23 @@ const InfoView = styled(View)`
 const ButtonView = styled(View)`
     flex: 1;
     justify-content: flex-end;
+`
+
+const MyBtnContainer = styled(View)`
+    flex-direction: row;
+    position: absolute;
+    top: 40px;
+    left: 5%;
+`
+
+const MyBtn = styled(TouchableOpacity)`
+    width: 80px;
+    padding-vertical: 10px;
+    border-radius: 20px;
+    background-color: #ffffff;
+    border-color: #ccc;
+    border-width: 1px;
+    align-items: center;
 `
 
 const RoleBtnContainer = styled(View)`

@@ -13,6 +13,8 @@ import RegisterInsuranceScreen from './app/views/RegisterInsuranceScreen';
 import SplashScreen from './app/views/SplashScreen';
 import ProvideConfirmScreen from './app/views/ProvideConfirmScreen';
 import ProvideCompleteScreen from './app/views/ProvideCompleteScreen';
+import RegisterDetailScreen from './app/views/RegisterDetailScreen';
+import MyPortfolioScreen from './app/views/MyPortfolioScreen';
 import { RecoilRoot } from 'recoil';
 
 const Stack = createStackNavigator();
@@ -36,7 +38,8 @@ const App = () => {
             <Stack.Screen name="ProvideConfirm" component={ProvideConfirmScreen} />
             <Stack.Screen name="ProvideComplete" component={ProvideCompleteScreen} />
             <Stack.Screen name="RegisterInsurance" component={RegisterInsuranceScreen} />
-
+            <Stack.Screen name="RegisterDetail" component={RegisterDetailScreen} />
+            <Stack.Screen name="MyPortfolio" component={MyPortfolioScreen} />
           </Stack.Navigator>
         </NavigationContainer>
       </ApplicationProvider>

@@ -5,13 +5,13 @@ import { Card, Button, Input } from '@ui-kitten/components';
 
 import { StatusBar, SafeAreaView, View } from 'react-native'
 import styled from 'styled-components'
-import { PrimaryButton, TextView, DefaultHeader, LabelValueView } from './components'
+import { SuccessButton, TextView, DefaultHeader, LabelValueView } from './components'
 import colors from '../common/colors'
 import { styles } from '../common/styles';
 import { useRecoilState } from 'recoil';
 import { locationState } from '../states';
 
-const HomeDetailScreen = () => {
+const RegisterDetailScreen = () => {
     const navigation = useNavigation()
     const [location, setLocation] = useRecoilState(locationState)
     const [data, setData] = useState([])
@@ -59,7 +59,7 @@ const HomeDetailScreen = () => {
                                 <LineChart
                                     style={{ flex: 1, marginLeft: 16 }}
                                     data={data}
-                                    svg={{ stroke: colors.success }}
+                                    svg={{ stroke: colors.primary }}
                                     yMin={0}
                                     yMax={500}
                                     contentInset={contentInset}
@@ -71,7 +71,7 @@ const HomeDetailScreen = () => {
                         <LabelValueView label={"현재 풀"} value={"500 억원"}/>
                         <LabelValueView label={"공급자 수"} value={"573 명"} />
                     </BodyWrapper>
-                    <PrimaryButton title={"유동성 참여하기"} onClick={() => navigation.navigate("ProvideLiquidity") } />
+                    <SuccessButton title={"보험 가입하기"} onClick={() => navigation.navigate("ProvideLiquidity") } />
                 </Wrapper>
             </SafeAreaView>
         </>
@@ -107,4 +107,4 @@ const DefaultButton = styled(Button)`
     margin-top: 10px;
 `
 
-export default HomeDetailScreen
+export default RegisterDetailScreen

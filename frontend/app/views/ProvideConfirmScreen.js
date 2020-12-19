@@ -3,7 +3,7 @@ import { useRecoilState } from 'recoil';
 import { useNavigation } from '@react-navigation/native';
 import { Card } from '@ui-kitten/components';
 
-import { StatusBar, SafeAreaView, View, TouchableOpacity } from 'react-native';
+import { StatusBar, SafeAreaView, View, Image } from 'react-native';
 import styled from 'styled-components'
 import { DefaultHeader, PrimaryButton, TextView, LabelValueView } from './components'
 import { styles } from '../common/styles';
@@ -34,6 +34,7 @@ const ProvideConfirmScreen = () => {
                                     <TextView> 님의 보유자산</TextView>
                                 </InfoView>
                                 <PriceView>
+                                    <Image source={require("../assets/link.png")} style={{ width: 30, height: 30, marginRight: 10 }} />
                                     <TextView fontSize={24}>4500 LN</TextView>
                                 </PriceView>
                             </CardBody>
@@ -63,6 +64,7 @@ const InfoView = styled(View)`
 
 const PriceView = styled(View)`
     flex: 1;
+    flex-direction: row;
     align-items: flex-end;
     justify-content: flex-end;
 `
