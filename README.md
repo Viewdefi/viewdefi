@@ -6,9 +6,6 @@
 ## Viewdefi 소개
 TO-DO
 
-## 서비스 화면 캡처
-TO-DO
-
 ## 📚 사용한 기술 스택
 📒 프론트-엔드
 
@@ -23,11 +20,21 @@ TO-DO
 
 * recoiljs: 리액트에서는 상태 관리 프레임워크로 주로 Redux를 사용하나, 간혹 Mobx를 이용합니다. recoiljs는 가장 리액트 스러운 문법을 지원하자는 취지로 페이스북에서 개발한 상태관리 라이브러리로 atom과 selector라는 개념만 이해하면 바로 적용할 수 있도록 심플한 상태 관리 라이브러리입니다.
 
-
 📒 백-엔드
-* Python 3
-* Flask web framework - Node.js와 같은 스타일로 조립형으로 손쉽게 이용 가능한 웹 서버를 이용했습니다.
+
+**Python3: Flask web framework**<br />
+Node.js와 같은 스타일로 조립형으로 손쉽게 이용 가능한 웹 서버를 이용했습니다.
 
 📒 블록체인
-* [Line Blockchain Developers API](https://docs-blockchain.line.biz/overview/)
 * 이더리움 Solidity
+
+## 모바일 앱 캡처 화면
+| HomeScreen | LocationDetailScreen | ProvideLiquidityScreen |
+|:---:|:---:|:---:|
+|![HomeScreen][./images/HomeScreen.png] |![LocationDetailScreen][./images/LocationDetailScreen.png]|![ProvideLiquidityScreen][./images/ProvideLiquidityScreen.png]|
+| ProvideConfirmScreen | ProvideCompletionScreen | MyPortfolioScreen |
+|:---:|:---:|:---:|
+|![ProvideConfirmScreen][./images/ProvideConfirmScreen.png] |![ProvideCompletionScreen][./images/ProvideCompletionScreen.png]|![MyPortfolioScreen][./images/MyPortfolioScreen.png]|
+| RegisterDetailScreen | RegisterInsuranceScreen | - |
+|:---:|:---:|:---:|
+|![RegisterDetailScreen][./images/RegisterDetailScreen.png] |![RegisterInsuranceScreen][./images/RegisterInsuranceScreen.png]| - |
