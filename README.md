@@ -31,7 +31,7 @@ Node.js와 같은 스타일로 조립형으로 손쉽게 이용 가능한 웹 �
 ## 모바일 앱 캡처 화면
 | HomeScreen | LocationDetailScreen | ProvideLiquidityScreen |
 |:---:|:---:|:---:|
-|![HomeScreen](./images/HomeScreen.png) |![LocationDetailScreen](./images/LocationDetailScreen.png)|![ProvideLiquidityScreen([./images/ProvideLiquidityScreen.png)|
+|![HomeScreen](./images/HomeScreen.png) |![LocationDetailScreen](./images/LocationDetailScreen.png)|![ProvideLiquidityScreen](./images/ProvideLiquidityScreen.png)|
 | ProvideConfirmScreen | ProvideCompletionScreen | MyPortfolioScreen |
 |:---:|:---:|:---:|
 |![ProvideConfirmScreen](./images/ProvideConfirmScreen.png) |![ProvideCompletionScreen](./images/ProvideCompletionScreen.png)|![MyPortfolioScreen](./images/MyPortfolioScreen.png)|
