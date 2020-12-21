@@ -93,7 +93,7 @@ def fetch_by_city(city_code:int, filename: str):
     for ymd in date_iterator(12, 2015, now.month, now.year):
         print("fetching real estate trade for ", ymd)
         pageNo = 1
-        rows = 50
+        rows = 150
         result, total_cnt = call_trade_api(pageNo, rows, city_code, ymd)
         for el in result:
             put_data(el)
