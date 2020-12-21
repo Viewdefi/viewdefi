@@ -84,7 +84,6 @@ def save_stats():
 
 def fetch_by_city(city_code:int):
     now = datetime.now()
-    # for ymd in date_iterator(12, 2015, now.month, now.year):
     for ymd in date_iterator(12, 2015, now.month, now.year):
         print("fetching real estate trade for ", ymd)
         pageNo = 1
@@ -109,5 +108,4 @@ if __name__ == "__main__":
     print("SERVICE_KEY: ", SERVICE_KEY)
     print("SERVICE_URL: ", SERVICE_URL)
 
-    # result = call_trade_api(1, 10, 11680, 202010)
     fetch_by_city(11680)
