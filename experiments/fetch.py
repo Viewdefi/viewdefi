@@ -78,22 +78,28 @@ def pin_for_stats(ymd):
         stats_y_value.append(index)
 
 def save_stats(filename:str):
-    print(stats_x_label)
-    print(stats_y_value)
-
     plt.plot(stats_x_label, stats_y_value, linestyle='--', linewidth=1.5)
     plt.xticks(rotation=45)
     plt.ylabel('index')
     plt.xlabel('deal year and month')
-    plt.grid()
     plt.savefig(filename)
+    plt.clf()
 
 def fetch_by_city(city_code:int, filename: str):
+    global db
+    global stats_x_label
+    global stats_y_value
+
+    # initialize
+    db = []
+    stats_x_label = []
+    stats_y_value = []
+
     now = datetime.now()
-    for ymd in date_iterator(12, 2015, now.month, now.year):
+    for ymd in date_iterator(12, 2017, now.month, now.year):
         print("fetching real estate trade for ", ymd)
         pageNo = 1
-        rows = 150
+        rows = 500
         result, total_cnt = call_trade_api(pageNo, rows, city_code, ymd)
         for el in result:
             put_data(el)
