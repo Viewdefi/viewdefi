@@ -37,6 +37,11 @@ def call_trade_api(pageNo:int, rows: int, city_code: int, deal_ymd: int):
 
     r = requests.get(url)
     root = ET.fromstring(r.text)
+    result = root.findtext(".//resultCode")
+    if result == "99":
+        print("limited number of service requests.")
+        exit(0)
+
     items = root.findall(".//item")
     total_cnt = root.findtext(".//totalCount")
     result = []
@@ -72,17 +77,18 @@ def pin_for_stats(ymd):
         stats_x_label.append(str(ymd))
         stats_y_value.append(index)
 
-def save_stats():
+def save_stats(filename:str):
     print(stats_x_label)
     print(stats_y_value)
 
-    plt.plot(stats_x_label, stats_y_value)
-    plt.xticks(rotation=90)
+    plt.plot(stats_x_label, stats_y_value, linestyle='--', linewidth=1.5)
+    plt.xticks(rotation=45)
     plt.ylabel('index')
     plt.xlabel('deal year and month')
-    plt.savefig('foo.png')
+    plt.grid()
+    plt.savefig(filename)
 
-def fetch_by_city(city_code:int):
+def fetch_by_city(city_code:int, filename: str):
     now = datetime.now()
     for ymd in date_iterator(12, 2015, now.month, now.year):
         print("fetching real estate trade for ", ymd)
@@ -102,10 +108,17 @@ def fetch_by_city(city_code:int):
         pin_for_stats(ymd)
         print("[done for]", ymd)
 
-    save_stats()
+    save_stats(filename)
 
 if __name__ == "__main__":
     print("SERVICE_KEY: ", SERVICE_KEY)
     print("SERVICE_URL: ", SERVICE_URL)
 
-    fetch_by_city(11680)
+    fetch_by_city(11680, "graph_gangnam.png")
+    fetch_by_city(11650, "graph_seocho.png")
+    fetch_by_city(11440, "graph_mapo.png")
+    fetch_by_city(41135, "graph_bundang.png")
+    fetch_by_city(41131, "graph_soojeong.png")
+    fetch_by_city(28237, "graph_boopyung.png")
+    fetch_by_city(41173, "graph_dognan.png")
+    fetch_by_city(11620, "graph_gwanak.png")
