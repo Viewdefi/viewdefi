@@ -10,6 +10,7 @@ from datetime import datetime
 load_dotenv(verbose=True)
 SERVICE_KEY = os.getenv("SERVICE_KEY")
 SERVICE_URL = "http://openapi.molit.go.kr/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcAptTradeDev"
+GLOBAL_COUNTER = 0
 
 db = []
 stats_x_label = []
@@ -29,6 +30,8 @@ def call_trade_api(pageNo:int, rows: int, city_code: int, deal_ymd: int):
     rows -- number of records to read
     city -- city_code
     """
+    global GLOBAL_COUNTER
+    GLOBAL_COUNTER += 1
     url = SERVICE_URL + "?serviceKey=" + SERVICE_KEY
     url += "&pageNo=" + str(pageNo)
     url += "&numOfRows=" + str(rows)
@@ -99,7 +102,7 @@ def fetch_by_city(city_code:int, filename: str):
     for ymd in date_iterator(12, 2017, now.month, now.year):
         print("fetching real estate trade for ", ymd)
         pageNo = 1
-        rows = 500
+        rows = 5000
         result, total_cnt = call_trade_api(pageNo, rows, city_code, ymd)
         for el in result:
             put_data(el)
@@ -114,6 +117,7 @@ def fetch_by_city(city_code:int, filename: str):
         pin_for_stats(ymd)
         print("[done for]", ymd)
 
+    print("[api call count]", GLOBAL_COUNTER)
     save_stats(filename)
 
 if __name__ == "__main__":
