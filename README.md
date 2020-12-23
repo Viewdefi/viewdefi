@@ -19,7 +19,7 @@ TO-DO
 |![분당구](./images/experiments/graph_bundang.png) |![부평구](./images/experiments/graph_boopyung.png)|![동안구](./images/experiments/graph_dongan.png)|
 | 서울시 서초구 | 경기도 수정구 | - |
 |:---:|:---:|:---:|
-|![서초구](./images/experiments/graph_secho.png) |![수정구](./images/experiments/graph_soojeong.png)| - |
+|![서초구](./images/experiments/graph_seocho.png) |![수정구](./images/experiments/graph_soojeong.png)| - |
 
 ## 📚 사용한 기술 스택
 📒 프론트-엔드
