@@ -16,6 +16,8 @@ db = []
 stats_x_label = []
 stats_y_value = []
 
+plt.style.use('dark_background')
+
 def date_iterator( start_month, start_year, end_month, end_year ):
     ym_start= 12*start_year + start_month - 1
     ym_end= 12*end_year + end_month - 1
@@ -130,5 +132,5 @@ if __name__ == "__main__":
     fetch_by_city(41135, "graph_bundang.png")
     fetch_by_city(41131, "graph_soojeong.png")
     fetch_by_city(28237, "graph_boopyung.png")
-    fetch_by_city(41173, "graph_dognan.png")
+    fetch_by_city(41173, "graph_dongan.png")
     fetch_by_city(11620, "graph_gwanak.png")
