@@ -6,36 +6,23 @@ const HomeView = () => {
             <div className="col-md-4 mt-4">
                 <div className="card">
                     <div className="card-body text-center">
-                        <div className="pool-icon">
-                            <i className="tio-city"></i>
-                        </div>
-                        <h3 className="mb-1"><a className="text-dark" href="#">강남구 서초동 Pool</a></h3>
-
+                        <h3 className="mb-1 text-dark mt-3">GANG-NAM POOL #1</h3>
                         <div className="mb-3">
                             <i className="tio-city mr-1"></i>
-                            <span>Research team</span>
+                            <span>강남구 서초동</span>
                         </div>
                     </div>
-
                     <div className="card-footer">
                         <div className="row justify-content-between align-items-center">
-                        <div className="col-auto py-1">
-                            <a className="font-size-sm text-body" href="#">9 connections</a>
-                        </div>
-
-                        <div className="col-auto py-1">
-                            <div className="custom-control custom-checkbox-switch">
-                            <input type="checkbox" id="connectionsCheckbox6" className="custom-control-input custom-checkbox-switch-input" />
-                            <label className="custom-checkbox-switch-label btn-sm" for="connectionsCheckbox6">
-                                <span className="custom-checkbox-switch-default">
-                                    <i className="tio-user-add mr-1"></i> Connect
-                                </span>
-                                <span className="custom-checkbox-switch-active">
-                                    <i className="tio-done mr-1"></i> Connected
-                                </span>
-                            </label>
+                            <div className="col-md-12">
+                                <button type="button" className="btn btn-sm btn-block btn-outline-secondary">Buy Insurance</button>
                             </div>
-                        </div>
+                            <div className="col-md-12">
+                                <button type="button" className="btn btn-sm btn-block btn-outline-secondary mt-2">Provide Liquidity</button>
+                            </div>
+                            <div className="col-md-12">
+                                <button type="button" className="btn btn-sm btn-block btn-outline-primary mt-2">View Detail</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -61,6 +48,13 @@ const HomeView = () => {
                 </div>
                 <div className="col-lg-9">
                     <div className="row">
+                        <PoolView />
+                        <PoolView />
+                        <PoolView />
+                        <PoolView />
+                        <PoolView />
+                        <PoolView />
+                        <PoolView />
                         <PoolView />
                     </div>
                 </div>

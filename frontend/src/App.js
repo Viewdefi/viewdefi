@@ -8,6 +8,7 @@ import {
 } from "react-router-dom";
 
 import Header from './common/Header';
+import Footer from './common/Footer';
 import HomeView from './views/HomeView';
 
 const App = () => {
@@ -20,6 +21,7 @@ const App = () => {
                         <HomeView />
                     </Route>
                 </Switch>
+                <Footer />
             </div>
         </Router>
     )

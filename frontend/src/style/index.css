@@ -4,6 +4,10 @@ header {
     font-size: 16px;
 }
 
+footer {
+    padding: 20px 0;
+}
+
 header .container {
     width: 1000px;
 }
@@ -15,6 +19,12 @@ header .container {
 .btn-wallet-connect {
     margin-top: 7px;
     font-size: 14px;
+}
+
+.pool-icon {
+    padding: 8px 11px;
+    font-size: 24px;
+    color: #fff;
 }
 
 /* home */
