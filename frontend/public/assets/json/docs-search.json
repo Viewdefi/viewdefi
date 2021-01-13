@@ -1,0 +1,392 @@
+[
+  {
+    "component": "Introduction",
+    "category": "Getting Started",
+    "link": "./index.html"
+  },
+  {
+    "component": "Gulp",
+    "category": "Getting Started",
+    "link": "./gulp.html"
+  },
+  {
+    "component": "Customization",
+    "category": "Getting Started",
+    "link": "./customization.html"
+  },
+  {
+    "component": "Typography",
+    "category": "Content",
+    "link": "./typography.html"
+  },
+  {
+    "component": "Icon set",
+    "category": "Content",
+    "link": "./icon-set.html"
+  },
+  {
+    "component": "Alerts",
+    "category": "Components",
+    "link": "./alerts.html"
+  },
+  {
+    "component": "Avatars",
+    "category": "Components",
+    "link": "./avatars.html"
+  },
+  {
+    "component": "Badge",
+    "category": "Components",
+    "link": "./badge.html"
+  },
+  {
+    "component": "Breadcrumb",
+    "category": "Components",
+    "link": "./breadcrumb.html"
+  },
+  {
+    "component": "Buttons",
+    "category": "Components",
+    "link": "./buttons.html"
+  },
+  {
+    "component": "Cards",
+    "category": "Components",
+    "link": "./cards.html"
+  },
+  {
+    "component": "Collapse",
+    "category": "Components",
+    "link": "./collapse.html"
+  },
+  {
+    "component": "Column divider",
+    "category": "Components",
+    "link": "./column-divider.html"
+  },
+  {
+    "component": "Divider",
+    "category": "Components",
+    "link": "./divider.html"
+  },
+  {
+    "component": "Dropdowns",
+    "category": "Components",
+    "link": "./dropdowns.html"
+  },
+  {
+    "component": "Legend indicator",
+    "category": "Components",
+    "link": "./legend-indicator.html"
+  },
+  {
+    "component": "List Group",
+    "category": "Components",
+    "link": "./list-group.html"
+  },
+  {
+    "component": "Lists",
+    "category": "Components",
+    "link": "./lists.html"
+  },
+  {
+    "component": "Modal",
+    "category": "Components",
+    "link": "./modal.html"
+  },
+  {
+    "component": "Navbar",
+    "category": "Components",
+    "link": "./navbar.html"
+  },
+  {
+    "component": "Navs",
+    "category": "Components",
+    "link": "./navs.html"
+  },
+  {
+    "component": "Page header",
+    "category": "Components",
+    "link": "./page-header.html"
+  },
+  {
+    "component": "Pagination",
+    "category": "Components",
+    "link": "./pagination.html"
+  },
+  {
+    "component": "Popovers",
+    "category": "Components",
+    "link": "./popovers.html"
+  },
+  {
+    "component": "Progress",
+    "category": "Components",
+    "link": "./progress.html"
+  },
+  {
+    "component": "Profile cover",
+    "category": "Components",
+    "link": "./profile-cover.html"
+  },
+  {
+    "component": "Spinners",
+    "category": "Components",
+    "link": "./spinners.html"
+  },
+  {
+    "component": "Steps",
+    "category": "Components",
+    "link": "./steps.html"
+  },
+  {
+    "component": "Tab",
+    "category": "Components",
+    "link": "./tab.html"
+  },
+  {
+    "component": "Tooltips",
+    "category": "Components",
+    "link": "./tooltips.html"
+  },
+  {
+    "component": "Borders",
+    "category": "Utilities",
+    "link": "./borders.html"
+  },
+  {
+    "component": "Colors",
+    "category": "Utilities",
+    "link": "./colors.html"
+  },
+  {
+    "component": "Positions",
+    "category": "Utilities",
+    "link": "./positions.html"
+  },
+  {
+    "component": "Sizing",
+    "category": "Utilities",
+    "link": "./sizing.html"
+  },
+  {
+    "component": "Text",
+    "category": "Utilities",
+    "link": "./text.html"
+  },
+  {
+    "component": "Others",
+    "category": "Utilities",
+    "link": "./others.html"
+  },
+  {
+    "component": "Basic forms",
+    "category": "Basic forms",
+    "link": "./basic-forms.html"
+  },
+  {
+    "component": "Checks and switches",
+    "category": "Basic forms",
+    "link": "./checks-and-switches.html"
+  },
+  {
+    "component": "Input group",
+    "category": "Basic forms",
+    "link": "./input-group.html"
+  },
+  {
+    "component": "Advanced select (Select2)",
+    "category": "Advanced forms",
+    "link": "./select2.html"
+  },
+  {
+    "component": "Datepicker (Flatpickr)",
+    "category": "Advanced forms",
+    "link": "./flatpickr.html"
+  },
+  {
+    "component": "Date range picker",
+    "category": "Advanced forms",
+    "link": "./daterangepicker.html"
+  },
+  {
+    "component": "Calendar (Fullcalendar)",
+    "category": "Advanced forms",
+    "link": "./calendar.html"
+  },
+  {
+    "component": "File attachments",
+    "category": "Advanced forms",
+    "link": "./file-attach.html"
+  },
+  {
+    "component": "Drag’ n’ drop file uploads",
+    "category": "Advanced forms",
+    "link": "./dropzone.html"
+  },
+  {
+    "component": "WYSIWYG Editor",
+    "category": "Advanced forms",
+    "link": "./quill.html"
+  },
+  {
+    "component": "Copy to clipboard",
+    "category": "Advanced forms",
+    "link": "./clipboard.html"
+  },
+  {
+    "component": "Quantity counter",
+    "category": "Advanced forms",
+    "link": "./quantity-counter.html"
+  },
+  {
+    "component": "Input mask",
+    "category": "Advanced forms",
+    "link": "./input-mask.html"
+  },
+  {
+    "component": "Add field(s)",
+    "category": "Advanced forms",
+    "link": "./add-field.html"
+  },
+  {
+    "component": "Toggle password(s)",
+    "category": "Advanced forms",
+    "link": "./toggle-password.html"
+  },
+  {
+    "component": "Count characters",
+    "category": "Advanced forms",
+    "link": "./count-characters.html"
+  },
+  {
+    "component": "Form search",
+    "category": "Advanced forms",
+    "link": "./form-search.html"
+  },
+  {
+    "component": "Toggle switch",
+    "category": "Advanced forms",
+    "link": "./toggle-switch.html"
+  },
+  {
+    "component": "Range slider",
+    "category": "Advanced forms",
+    "link": "./ion-range-slider.html"
+  },
+  {
+    "component": "Password strength",
+    "category": "Advanced forms",
+    "link": "./password-strength.html"
+  },
+  {
+    "component": "Step forms (Wizards)",
+    "category": "Advanced forms",
+    "link": "./step-forms.html"
+  },
+  {
+    "component": "Wizards",
+    "category": "Advanced forms",
+    "link": "./step-forms.html"
+  },
+  {
+    "component": "Input Tags (Tagify)",
+    "category": "Advanced forms",
+    "link": "./tagify.html"
+  },
+  {
+    "component": "Google reCAPTCHA",
+    "category": "Advanced forms",
+    "link": "./google-recaptcha.html"
+  },
+  {
+    "component": "Form validation",
+    "category": "Advanced forms",
+    "link": "./form-validation.html"
+  },
+  {
+    "component": "Mega menu",
+    "category": "Navbar",
+    "link": "./mega-menu.html"
+  },
+  {
+    "component": "Navbar vertical aside",
+    "category": "Navbar",
+    "link": "./navbar-vertical-aside.html"
+  },
+  {
+    "component": "Tables",
+    "category": "Tables",
+    "link": "./tables.html"
+  },
+  {
+    "component": "Editable rows",
+    "category": "Tables",
+    "link": "./table-editable-rows.html"
+  },
+  {
+    "component": "Sticky thead",
+    "category": "Tables",
+    "link": "./sticky-thead.html"
+  },
+  {
+    "component": "Datatables",
+    "category": "Tables",
+    "link": "./datatables.html"
+  },
+  {
+    "component": "Counter",
+    "category": "Charts",
+    "link": "./counter.html"
+  },
+  {
+    "component": "Chart.js",
+    "category": "Charts",
+    "link": "./chartjs.html"
+  },
+  {
+    "component": "Circles",
+    "category": "Charts",
+    "link": "./circles.html"
+  },
+  {
+    "component": "Leaflet",
+    "category": "Maps",
+    "link": "./leaflet.html"
+  },
+  {
+    "component": "jVectorMap",
+    "category": "Maps",
+    "link": "./jvectormap.html"
+  },
+  {
+    "component": "Scrollspy",
+    "category": "Others",
+    "link": "./scrollspy.html"
+  },
+  {
+    "component": "Sortablejs",
+    "category": "Others",
+    "link": "./sortablejs.html"
+  },
+  {
+    "component": "Sticky block",
+    "category": "Others",
+    "link": "./sticky-block.html"
+  },
+  {
+    "component": "Go-to",
+    "category": "Others",
+    "link": "./go-to.html"
+  },
+  {
+    "component": "FanxyBox",
+    "category": "Others",
+    "link": "./fancybox.html"
+  },
+  {
+    "component": "Unfold",
+    "category": "Others",
+    "link": "./unfold.html"
+  }
+]

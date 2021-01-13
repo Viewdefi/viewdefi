@@ -1,0 +1,53 @@
+{
+  "_from": "daterangepicker@^3.0.5",
+  "_id": "daterangepicker@3.1.0",
+  "_inBundle": false,
+  "_integrity": "sha512-DxWXvvPq4srWLCqFugqSV+6CBt/CvQ0dnpXhQ3gl0autcIDAruG1PuGG3gC7yPRNytAD1oU1AcUOzaYhOawhTw==",
+  "_location": "/daterangepicker",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "range",
+    "registry": true,
+    "raw": "daterangepicker@^3.0.5",
+    "name": "daterangepicker",
+    "escapedName": "daterangepicker",
+    "rawSpec": "^3.0.5",
+    "saveSpec": null,
+    "fetchSpec": "^3.0.5"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/daterangepicker/-/daterangepicker-3.1.0.tgz",
+  "_shasum": "718d606614331df3e774c9aba82ccd8838d45da1",
+  "_spec": "daterangepicker@^3.0.5",
+  "_where": "/Applications/MAMP/htdocs/front/front-dashboard",
+  "author": {
+    "name": "Dan Grossman",
+    "email": "dan@dangrossman.info",
+    "url": "http://www.dangrossman.info"
+  },
+  "bugs": {
+    "url": "https://github.com/dangrossman/daterangepicker/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "jquery": ">=1.10",
+    "moment": "^2.9.0"
+  },
+  "deprecated": false,
+  "description": "Date range picker component for Bootstrap",
+  "homepage": "https://github.com/dangrossman/daterangepicker",
+  "license": "MIT",
+  "main": "daterangepicker.js",
+  "name": "daterangepicker",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dangrossman/daterangepicker.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "style": "daterangepicker.css",
+  "version": "3.1.0"
+}
