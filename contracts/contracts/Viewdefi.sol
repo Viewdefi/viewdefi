@@ -1,6 +1,8 @@
-pragma solidity 0.6.0;
+pragma solidity >=0.5.0 <0.6.0;
 
-import "@openzeppelin/contracts/math/SafeMath.sol";
+import "./SafeMath.sol";
+import "./Context.sol";
+import "./ERC20.sol";
 
 // This is just a simple example of a coin-like contract.
 // It is not standards compatible and cannot be expected to talk to other
@@ -18,6 +20,9 @@ contract ViewdefiFactory {
 
 contract Viewdefi {
 	using SafeMath for uint256;
+
+	address private LPTokenAddress;
+	uint256 private liquidity;
 
 	constructor() public {
 		
