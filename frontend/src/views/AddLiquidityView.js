@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 const AddLiquidityView = () => {
     return (
         <div className="container mt-5">
-            <div className="row justify-content-md-center">
+            <div className="row mt-15 mb-15 justify-content-md-center">
                 <div className="col-lg-5">
                     <div className="card">
                         <div className="card-header">
@@ -14,7 +14,6 @@ const AddLiquidityView = () => {
                                 <div className="col-md-6 mb-3">
                                     <span className="card-subtitle mb-0">Name</span>
                                     <h4>GANGNAM POOL</h4>
-                                    <span className="badge badge-soft-danger badge-pill"><i className="tio-trending-down"></i> -23 index</span>
                                 </div>
                                 <div className="col-md-6 mb-3">
                                     <span className="card-subtitle mb-0">APY</span>
@@ -27,6 +26,12 @@ const AddLiquidityView = () => {
                                 <div className="col-md-6 mb-3">
                                     <span className="card-subtitle mb-0">Number of providers</span>
                                     <h4>112</h4>
+                                </div>
+                                <div className="col-md-6 mb-3">
+                                    <span className="card-subtitle mb-0">Current Index 
+                                        <i class="tio-help-outlined text-body ml-1"></i>
+                                    </span>
+                                    <h4>2412.24 <span className="badge badge-soft-danger badge-pill"><i className="tio-trending-down"></i> -23</span></h4>
                                 </div>
                             </div>
                         </div>

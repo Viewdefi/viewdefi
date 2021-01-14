@@ -24,9 +24,6 @@ const HomeView = () => {
                             <div className="col-md-12">
                                 <Link to="/add/liquidity" className="btn btn-sm btn-block btn-outline-secondary mt-2">Provide Liquidity</Link>
                             </div>
-                            <div className="col-md-12">
-                                <Link to="/pool/detail" className="btn btn-sm btn-block btn-outline-primary mt-2">View Detail</Link>
-                            </div>
                         </div>
                     </div>
                 </div>
