@@ -35,17 +35,19 @@ contract Viewdefi is MultiOwnable {
 		_addOwnership(owner, POOL_OWNER);
 	}
 
-    // 0. Requirement : pre-defined commission rate β, pre-deployed governance token GOV, pre-defined liquidity lock-up period T
+    // * 2021-01-14 15:47 * IMPORTANT CHANGE - GOV -> LPT (about GOV is TBD)
+
+    // 0. Requirement : pre-defined commission rate β, pre-defined liquidity lock-up period T
 	function addLiquidity(uint256 liquidity) public view returns (bool) {
 	    _liquidity.add(liquidity);
         /* Called when LP(Liquidity Provider) provides liquidity to the pool
-            1. Receive selected amount of token from LP
-            2. Calculate GOV distribution amount
+            1. Receive collateral asset from LP (say, ETH)
+            2. Calculate LPT distribution amount
             3. Transfer (1-β)% to LP, β% to pool manager
-            4. Save lock-up finish time, GOV distribution amount to LP
+            4. Save lock-up finish time, LPT distribution amount to LP
 
-            * GOV distribution amount calculation formula *
-            ( GOV_max_supply - GOV_cur_supply ) * { VAL_new_liquidity / ( VAL_new_liquidity + VAL_cur_liquidity ) }
+            * LPT distribution amount calculation formula *
+            ( LPT_max_supply - LPT_cur_supply ) * { POOL_new_liquidity / ( POOL_new_liquidity + POOL_cur_liquidity ) }
             
             cf. PPT 11p
         */
@@ -58,10 +60,10 @@ contract Viewdefi is MultiOwnable {
         _liquidity.sub(liquidity);
         /* Called when LP tries to remove liquidity from the pool
             1. Check if LP's lock-up period is over
-            2. Check if LP has enough GOV to return
-            3. Receive GOV from LP
-            4. Transfer asset (collateral) to LP
-            5. Burn received GOV (TBD)
+            2. Check if LP has enough LPT to return
+            3. Receive LPT from LP
+            4. Transfer collateral asset back to LP
+            5. Burn received LPT (Burn rate TBD)
         */
 
 
