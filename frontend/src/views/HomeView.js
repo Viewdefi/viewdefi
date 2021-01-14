@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const HomeView = () => {
     const PoolView = () => {
@@ -7,21 +8,24 @@ const HomeView = () => {
                 <div className="card">
                     <div className="card-body text-center">
                         <h3 className="mb-1 text-dark mt-3">GANG-NAM POOL #1</h3>
-                        <div className="mb-3">
+                        <div className="mb-1">
                             <i className="tio-city mr-1"></i>
                             <span>강남구 서초동</span>
+                        </div>
+                        <div className="mb-3">
+                            <span class="badge badge-soft-danger badge-pill"><i class="tio-trending-down"></i> -23 index</span>
                         </div>
                     </div>
                     <div className="card-footer">
                         <div className="row justify-content-between align-items-center">
                             <div className="col-md-12">
-                                <button type="button" className="btn btn-sm btn-block btn-outline-secondary">Buy Insurance</button>
+                                <Link to="/buy/insurance" className="btn btn-sm btn-block btn-outline-secondary">Buy Insurance</Link>
                             </div>
                             <div className="col-md-12">
-                                <button type="button" className="btn btn-sm btn-block btn-outline-secondary mt-2">Provide Liquidity</button>
+                                <Link to="/add/liquidity" className="btn btn-sm btn-block btn-outline-secondary mt-2">Provide Liquidity</Link>
                             </div>
                             <div className="col-md-12">
-                                <button type="button" className="btn btn-sm btn-block btn-outline-primary mt-2">View Detail</button>
+                                <Link to="/pool/detail" className="btn btn-sm btn-block btn-outline-primary mt-2">View Detail</Link>
                             </div>
                         </div>
                     </div>

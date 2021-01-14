@@ -10,6 +10,8 @@ import {
 import Header from './common/Header';
 import Footer from './common/Footer';
 import HomeView from './views/HomeView';
+import AddLiquidityView from './views/AddLiquidityView';
+import BuyInsuranceView from './views/BuyInsuranceView';
 
 const App = () => {
     return (
@@ -17,6 +19,12 @@ const App = () => {
             <div className="app">
                 <Header />
                 <Switch>
+                    <Route path="/add/liquidity">
+                        <AddLiquidityView />
+                    </Route>
+                    <Route path="/buy/insurance">
+                        <BuyInsuranceView />
+                    </Route>
                     <Route path="/">
                         <HomeView />
                     </Route>
