@@ -35,9 +35,15 @@ contract Viewdefi is MultiOwnable {
 		_addOwnership(owner, POOL_OWNER);
 	}
 
-    // * 2021-01-14 15:47 * IMPORTANT CHANGE - GOV -> LPT (about GOV is TBD)
+    /*
+        -----Updatelist-----
+        2021-01-14 15:47 * IMPORTANT CHANGE - GOV -> LPT (Liquidity Pool Token) (about GOV is TBD)
 
-    // 0. Requirement : pre-defined commission rate β, pre-defined liquidity lock-up period T
+        -----Checklist-----
+        pre-defined commission rate β
+        pre-defined liquidity lock-up period T
+    */
+
 	function addLiquidity(uint256 liquidity) public view returns (bool) {
 	    _liquidity.add(liquidity);
         /* Called when LP(Liquidity Provider) provides liquidity to the pool
@@ -70,9 +76,49 @@ contract Viewdefi is MultiOwnable {
 		return true;
 	}
 
+    /*
+        Future Work
+        func addExtraLiquidity
+        func removePartialLiquidity
+    */
+
 	function addPoolIndex(uint256 index) public onlyOwner(POOL_MANAGER) view returns (bool) {
+        /*  Called when PM (Pool Manager) tries to update Pool Index
+            The array maintains the last N indices
+        */
+
+
 		return true;
 	}
+
+    function enterInsurance(uint256 claimAmount, uint256 targetIndex, uint256 expiryDate) public view returns (bool) {
+        /*
+            Insurance Taker can set 3 parameters - Insurance Money, Target Index, Expiry Date
+        */
+
+
+        return true;
+    }
+
+    function renewInsurance(uint256 claimAmount, uint256 targetIndex, uint256 expiryDate) public view returns (bool) {
+        /*
+            Insurance Taker can renew the Insurance before the Expiry Date comes
+        */
+
+
+        return true;
+    }
+
+    function claimInsurance(uint256 ifneeded) public view returns (bool) {
+        /*
+            Insurance Taker can claim Insurance Money if the Pool Index reaches the Target Index before the Expiry Date comes
+        */
+
+
+        return true;
+    }
+
+
 
     function addOwnership(
         address account,
