@@ -12,6 +12,7 @@ import Footer from './common/Footer';
 import HomeView from './views/HomeView';
 import AddLiquidityView from './views/AddLiquidityView';
 import BuyInsuranceView from './views/BuyInsuranceView';
+import MyPageView from './views/MyPageView';
 
 const App = () => {
     return (
@@ -19,6 +20,9 @@ const App = () => {
             <div className="app">
                 <Header />
                 <Switch>
+                    <Route path="/mypage">
+                        <MyPageView />
+                    </Route>
                     <Route path="/add/liquidity">
                         <AddLiquidityView />
                     </Route>
