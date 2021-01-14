@@ -16,6 +16,11 @@ header .container {
     color: #333 !important;
 }
 
+header .nav-segment {
+    background: #dce4f3;
+    margin-top: 4px;
+}
+
 .btn-wallet-connect {
     margin-top: 7px;
     font-size: 14px;

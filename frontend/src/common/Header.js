@@ -1,12 +1,34 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import classnames from 'classnames'
 import { Link, useLocation } from 'react-router-dom'
+import { useWeb3React } from '@web3-react/core'
+import { injected } from '../core/connectors'
+import Web3 from 'web3'
 
 const Header = () => {
     const location = useLocation()
+    const [balance, setBalance] = useState(null);
+
+    const context = useWeb3React()
+    const { account, active, activate, library, error } = context
+
+    useEffect(() => {
+        if (!!account && !!library) {
+            library.getBalance(account)
+                .then(balance => {
+                    setBalance(balance.toString())
+                })
+                .catch(err => {
+                    console.error(err)
+                    setBalance(null)
+                })
+        }
+    }, [account, library])
 
     const connectToWallet = () => {
-
+        if(!active) {
+            activate(injected)
+        }
     }
 
     return (
@@ -38,10 +60,22 @@ const Header = () => {
                                 } to="/mypage">My Page</Link>
                             </li>
                             <li className="nav-item">
-                                <button className="btn btn-sm btn-primary ml-3 btn-wallet-connect" onClick={() => connectToWallet()}>
-                                    <i className="tio-wallet-outlined mr-2"></i>
-                                    Connect
-                                </button>
+                                { !active && (
+                                    <button className="btn btn-sm btn-primary ml-3 btn-wallet-connect" onClick={() => connectToWallet()}>
+                                        <i className="tio-wallet-outlined mr-2"></i>
+                                        Connect
+                                    </button>
+                                ) }
+                                { active && (
+                                    <ul className="nav nav-segment">
+                                        <li className="nav-item">
+                                            <span className="nav-link active">{balance} ETH</span>
+                                        </li>
+                                        <li className="nav-item">
+                                            <span className="nav-link">{account}</span>
+                                        </li>
+                                    </ul>
+                                ) }
                             </li>
                         </ul>
                     </nav>

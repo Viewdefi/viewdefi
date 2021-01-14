@@ -29,7 +29,7 @@ const BuyInsuranceView = () => {
                                 </div>
                                 <div className="col-md-6 mb-3">
                                     <span className="card-subtitle mb-0">Current Index 
-                                        <i class="tio-help-outlined text-body ml-1"></i>
+                                        <i className="tio-help-outlined text-body ml-1"></i>
                                     </span>
                                     <h4>2412.24 <span className="badge badge-soft-success badge-pill"><i className="tio-trending-up"></i> +23</span></h4>
                                 </div>

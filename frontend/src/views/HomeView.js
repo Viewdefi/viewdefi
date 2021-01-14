@@ -14,7 +14,7 @@ const HomeView = () => {
                             <span>강남구 서초동</span>
                         </div>
                         <div className="mb-3">
-                            <span class="badge badge-soft-danger badge-pill"><i class="tio-trending-down"></i> -23 index</span>
+                            <span className="badge badge-soft-danger badge-pill"><i className="tio-trending-down"></i> -23 index</span>
                         </div>
                     </div>
                     <div className="card-footer">
@@ -49,7 +49,7 @@ const HomeView = () => {
                     </div>
                 </div>
                 <div className="col-lg-9 text-right mt-5">
-                    <button type="button" className="btn btn-sm btn-soft-danger"><i class="tio-add mr-1"></i>Create a new pool</button>
+                    <button type="button" className="btn btn-sm btn-soft-danger"><i className="tio-add mr-1"></i>Create a new pool</button>
                 </div>
                 <div className="col-lg-9">
                     <div className="row">

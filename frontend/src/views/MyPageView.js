@@ -86,7 +86,7 @@ const MyPageView = () => {
                 <div className="col-lg-8 mb-3">
                     <div className="row">
                         <div className="col-md-6">
-                            <h3 class="page-header-title">My Pool</h3>
+                            <h3 className="page-header-title">My Pool</h3>
                         </div>
                         <div className="col-md-6 text-sm-right">
                             <span className="text-muted">Total Earnings <b className="text-primary ml-2">1.23 ETH</b></span>
@@ -104,7 +104,7 @@ const MyPageView = () => {
                 <div className="col-lg-8 mb-3">
                     <div className="row">
                         <div className="col-md-12">
-                            <h3 class="page-header-title">My Insurances</h3>
+                            <h3 className="page-header-title">My Insurances</h3>
                         </div>
                     </div>
                 </div>
