@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 const HomeView = () => {
+
     const PoolView = () => {
         return (
             <div className="col-md-4 mt-4">
@@ -41,11 +42,14 @@ const HomeView = () => {
                             <div className="input-group">
                                 <input className="form-control form-control-light" placeholder={"Enter your keyword."} />
                                 <div className="input-group-append">
-                                    <button type="button" className="btn btn-primary"><i className="tio-search mr-1"></i>Search</button>
+                                    <button type="button" className="btn btn-outline-secondary"><i className="tio-search mr-1"></i>Search</button>
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div>
+                <div className="col-lg-9 text-right mt-5">
+                    <button type="button" className="btn btn-sm btn-soft-danger"><i class="tio-add mr-1"></i>Create a new pool</button>
                 </div>
                 <div className="col-lg-9">
                     <div className="row">
