@@ -27,53 +27,53 @@ contract ViewdefiFactory is Context {
 }
 
 contract Viewdefi is Context,MultiOwnable {
-	uint8 private constant POOL_OWNER = 4;
-	uint8 private constant POOL_MANAGER = 3;
-	uint256 private MINIMUM_LIQUIDITY = 100 * (10 ** 18);
-	uint256 private MAX_LIQUIDITY = 100000000 * (10 ** 18);
+    uint8 private constant POOL_OWNER = 4;
+    uint8 private constant POOL_MANAGER = 3;
+    uint256 private MINIMUM_LIQUIDITY = 100 * (10 ** 18);
+    uint256 private MAX_LIQUIDITY = 100000000 * (10 ** 18);
 
-	using SafeMath for uint256;
-	
-	bytes4 private constant BURNFROM = bytes4(keccak256(bytes('burnFrom(address,uint256)')));
-	bytes4 private constant MINT = bytes4(keccak256(bytes('mint(address,uint256)')));
-	
-	// 보험 구조체 정보
-	struct Insurance {
+    using SafeMath for uint256;
+
+    bytes4 private constant BURNFROM = bytes4(keccak256(bytes('burnFrom(address,uint256)')));
+    bytes4 private constant MINT = bytes4(keccak256(bytes('mint(address,uint256)')));
+
+    // 보험 구조체 정보
+    struct Insurance {
         uint256 amount;             // 수량
         uint256 targetValue;        // 타겟 값
         uint256 protectionCost;     // 보험 비용
         uint256 issueTime;          // 보험 구매일
         uint256 endTime;            // 보험 만기일
-	}
-	
-	struct LPToken {
-	    uint256 amount;
-	    uint256 issueTime;
-	}
+    }
+
+    struct LPToken {
+        uint256 amount;
+        uint256 issueTime;
+    }
 
     string public name;
     string public symbol;
     address public fetchAddress;
-	address public LPTokenAddress;
-	
-	// 전체 Liquidity
-	uint256 totalSupply;
-	
-	// 유동성 공급자의 현재 LP 토큰
-	mapping(address => LPToken) lp_tokenOf;
-	
-	// 유동성 공급자가 예치한 현재 자산
-	mapping(address => uint256) balanceOf;
+    address public LPTokenAddress;
 
-	constructor(string memory _name, string memory _symbol, address _fetchAddress, address _owner) public {
-	    name = _name;
-	    symbol = _symbol;
-	    fetchAddress = _fetchAddress;
-	    
-	    LP lp_token = new LP(name, symbol);
-	    LPTokenAddress = address(lp_token);
-		_addOwnership(_owner, POOL_OWNER);
-	}
+    // 전체 Liquidity
+    uint256 totalSupply;
+
+    // 유동성 공급자의 현재 LP 토큰
+    mapping(address => LPToken) lp_tokenOf;
+
+    // 유동성 공급자가 예치한 현재 자산
+    mapping(address => uint256) balanceOf;
+
+    constructor(string memory _name, string memory _symbol, address _fetchAddress, address _owner) public {
+        name = _name;
+        symbol = _symbol;
+        fetchAddress = _fetchAddress;
+        
+        LP lp_token = new LP(name, symbol);
+        LPTokenAddress = address(lp_token);
+        _addOwnership(_owner, POOL_OWNER);
+    }
 
     /*
         -----Updatelist-----
@@ -83,32 +83,32 @@ contract Viewdefi is Context,MultiOwnable {
         pre-defined commission rate β
         pre-defined liquidity lock-up period T
     */
-	function addLiquidity() public payable returns (uint256) {
-	    uint256 amount = msg.value;
-	    require(msg.value > 0, "Viewdefi: Insufficient Amount");
-	    
-	    uint256 totalLiquidity = totalSupply;
-	    if(totalLiquidity > 0) {
-	        uint256 current_supply = address(this).balance - msg.value;
-	        uint256 new_supply = address(this).balance;
-	        uint256 liquidity_minted = (MAX_LIQUIDITY - totalLiquidity) * (new_supply / (new_supply - current_supply));
-	        
-	        lp_tokenOf[_msgSender()].amount = lp_tokenOf[_msgSender()].amount.add(liquidity_minted);
-	        lp_tokenOf[_msgSender()].issueTime = now;
+    function addLiquidity() public payable returns (uint256) {
+        uint256 amount = msg.value;
+        require(msg.value > 0, "Viewdefi: Insufficient Amount");
+        
+        uint256 totalLiquidity = totalSupply;
+        if(totalLiquidity > 0) {
+            uint256 current_supply = address(this).balance - msg.value;
+            uint256 new_supply = address(this).balance;
+            uint256 liquidity_minted = (MAX_LIQUIDITY - totalLiquidity) * (new_supply / (new_supply - current_supply));
+            
+            lp_tokenOf[_msgSender()].amount = lp_tokenOf[_msgSender()].amount.add(liquidity_minted);
+            lp_tokenOf[_msgSender()].issueTime = now;
             balanceOf[_msgSender()] = balanceOf[_msgSender()].add(amount);
             return liquidity_minted;
-	    } else {
-	        uint256 liquidity_minted = MINIMUM_LIQUIDITY;
+        } else {
+            uint256 liquidity_minted = MINIMUM_LIQUIDITY;
             lp_tokenOf[_msgSender()].amount =  lp_tokenOf[_msgSender()].amount.add(liquidity_minted);
             lp_tokenOf[_msgSender()].issueTime = now;
             balanceOf[_msgSender()] = balanceOf[_msgSender()].add(amount);
             return liquidity_minted;
-	    }
-	}
+        }
+    }
 
     function removeLiquidity(uint256 amount) public view returns (bool) {
-		return true;
-	}
+        return true;
+    }
 
     function enterInsurance(uint256 claimAmount, uint256 targetIndex, uint256 expiryDate) public view returns (bool) {
         /*
