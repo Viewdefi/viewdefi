@@ -13,16 +13,16 @@ header .container {
 }
 
 .navbar-brand {
-    color: #333 !important;
+    color: #fff !important;
 }
 
 header .nav-segment {
-    background: #dce4f3;
+    background: #191e28;
     margin-top: 4px;
 }
 
 .btn-wallet-connect {
-    margin-top: 7px;
+    margin-top: 4px;
     font-size: 14px;
 }
 
@@ -43,9 +43,18 @@ header .nav-segment {
 }
 
 .mt-15 {
-    margin-top: 6rem !important;
+    margin-top: 4rem !important;
 }
 
 .mb-15 {
-    margin-bottom: 6rem !important;
+    margin-bottom: 4rem !important;
+}
+
+.btn-block {
+    display: block;
+    width: 100%;
+}
+
+.ml-2 {
+    margin-left: 10px;
 }

@@ -41,16 +41,18 @@ const AddLiquidityView = () => {
                                     <div className="col-md-6">
                                         <label className="input-label">Amount</label>
                                     </div>
-                                    <div className="col-md-6 text-right">
-                                        <span className="input-label text-muted">Balance: 3.52 ETH</span>
+                                    <div className="col-md-6">
+                                        <span className="input-label text-muted float-end">Balance: 3.52 ETH</span>
                                     </div>
                                 </div>
                                 <input 
                                     type="text" 
-                                    className="form-control" 
+                                    className="form-control mt-2" 
                                     placeholder="0 ETH" />
                             </div>
-                            <button type="submit" className="btn btn-block btn-primary">Add Liquidity</button>
+                            <div className="form-group">
+                                <button type="submit" className="btn btn-block btn-primary mt-2">Add Liquidity</button>
+                            </div>
                         </div>
                         <div className="card-footer bg-light">
                             <div className="row">

@@ -20,10 +20,10 @@ const HomeView = () => {
                     <div className="card-footer">
                         <div className="row justify-content-between align-items-center">
                             <div className="col-md-12">
-                                <Link to="/buy/insurance" className="btn btn-sm btn-block btn-outline-secondary">Buy Insurance</Link>
+                                <Link to="/buy/insurance" className="btn btn-block btn-outline-secondary">Buy Insurance</Link>
                             </div>
                             <div className="col-md-12">
-                                <Link to="/add/liquidity" className="btn btn-sm btn-block btn-outline-secondary mt-2">Provide Liquidity</Link>
+                                <Link to="/add/liquidity" className="btn btn-block btn-outline-secondary mt-2">Provide Liquidity</Link>
                             </div>
                         </div>
                     </div>
@@ -48,8 +48,8 @@ const HomeView = () => {
                         </div>
                     </div>
                 </div>
-                <div className="col-lg-9 text-right mt-5">
-                    <button type="button" className="btn btn-sm btn-soft-danger"><i className="tio-add mr-1"></i>Create a new pool</button>
+                <div className="col-lg-9 mt-2">
+                    <button type="button" className="btn btn-sm btn-danger float-end"><i className="tio-add mr-1"></i>Create a new pool</button>
                 </div>
                 <div className="col-lg-9">
                     <div className="row">

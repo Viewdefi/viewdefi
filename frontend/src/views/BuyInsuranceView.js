@@ -40,17 +40,17 @@ const BuyInsuranceView = () => {
                                 <label className="input-label">Target Index</label>
                                 <input 
                                     type="text" 
-                                    className="form-control" 
+                                    className="form-control mt-1" 
                                     placeholder="0" />
                             </div>
-                            <div className="form-group">
+                            <div className="form-group mt-3">
                                 <label className="input-label">Target Value</label>
                                 <input 
                                     type="text" 
-                                    className="form-control" 
+                                    className="form-control mt-1" 
                                     placeholder="0 ETH" />
                             </div>
-                            <div className="form-group">
+                            <div className="form-group mt-3">
                                 <div className="row">
                                     <div className="col-md-6">
                                         <label className="input-label">Evaluated Protection Cost</label>
@@ -65,7 +65,7 @@ const BuyInsuranceView = () => {
                                     disabled={true}
                                     placeholder="0 ETH" />
                             </div>
-                            <button type="submit" className="btn btn-block btn-primary">Buy Insurance</button>
+                            <button type="submit" className="btn btn-block btn-primary mt-3">Buy Insurance</button>
                         </div>
                     </div>
                 </div>
