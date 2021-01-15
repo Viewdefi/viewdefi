@@ -5,29 +5,74 @@ import "./Context.sol";
 import "./MultiOwnable.sol";
 import "./ERC20.sol";
 import "./LP.sol";
+import "./UniswapV2Pair.sol";
 
-contract ViewdefiFactory {
-	event PoolCreated(address contractAddress, address owner, string name);
+contract ViewdefiFactory is Context {
+	event PoolCreated(address contractAddress, address fetchAddress, address owner, string name);
+	
+	uint256 public pool_length;
+    address[] public pool_list;
+    
+    constructor() public {
+        pool_length = 0;
+    }
 
-	function createPool(string calldata name) external {
-		Viewdefi pool = new Viewdefi(name, msg.sender);
-		emit PoolCreated(address(pool), msg.sender, name);
+	function createPool(string calldata name, string calldata symbol, address fetchAddress) external {
+	    pool_list[pool_length] = fetchAddress;
+	    pool_length += 1;
+	    
+		Viewdefi pool = new Viewdefi(name, symbol, fetchAddress, _msgSender());
+		emit PoolCreated(address(pool), fetchAddress, _msgSender(), name);
 	}
 }
 
-contract Viewdefi is MultiOwnable {
+contract Viewdefi is Context,MultiOwnable {
 	uint8 private constant POOL_OWNER = 4;
 	uint8 private constant POOL_MANAGER = 3;
+	uint256 private MINIMUM_LIQUIDITY = 100 * (10 ** 18);
+	uint256 private MAX_LIQUIDITY = 100000000 * (10 ** 18);
 
 	using SafeMath for uint256;
+	
+	bytes4 private constant BURNFROM = bytes4(keccak256(bytes('burnFrom(address,uint256)')));
+	bytes4 private constant MINT = bytes4(keccak256(bytes('mint(address,uint256)')));
+	
+	// 보험 구조체 정보
+	struct Insurance {
+        uint256 amount;             // 수량
+        uint256 targetValue;        // 타겟 값
+        uint256 protectionCost;     // 보험 비용
+        uint256 issueTime;          // 보험 구매일
+        uint256 endTime;            // 보험 만기일
+	}
+	
+	struct LPToken {
+	    uint256 amount;
+	    uint256 issueTime;
+	}
 
-    string _poolName;
-	address private _LPTokenAddress;
-	uint256 private _liquidity;
+    string public name;
+    string public symbol;
+    address public fetchAddress;
+	address public LPTokenAddress;
+	
+	// 전체 Liquidity
+	uint256 totalSupply;
+	
+	// 유동성 공급자의 현재 LP 토큰
+	mapping(address => LPToken) lp_tokenOf;
+	
+	// 유동성 공급자가 예치한 현재 자산
+	mapping(address => uint256) balanceOf;
 
-	constructor(string memory poolName, address owner) public {
-	    _poolName = poolName;
-		_addOwnership(owner, POOL_OWNER);
+	constructor(string memory _name, string memory _symbol, address _fetchAddress, address _owner) public {
+	    name = _name;
+	    symbol = _symbol;
+	    fetchAddress = _fetchAddress;
+	    
+	    LP lp_token = new LP(name, symbol);
+	    LPTokenAddress = address(lp_token);
+		_addOwnership(_owner, POOL_OWNER);
 	}
 
     /*
@@ -38,51 +83,30 @@ contract Viewdefi is MultiOwnable {
         pre-defined commission rate β
         pre-defined liquidity lock-up period T
     */
-
-	function addLiquidity(uint256 liquidity) public view returns (bool) {
-	    _liquidity.add(liquidity);
-        /* Called when LP(Liquidity Provider) provides liquidity to the pool
-            1. Receive collateral asset from LP (say, ETH)
-            2. Calculate LPT distribution amount
-            3. Transfer (1-β)% to LP, β% to pool manager
-            4. Save lock-up finish time, LPT distribution amount to LP
-
-            * LPT distribution amount calculation formula *
-            ( LPT_max_supply - LPT_cur_supply ) * { POOL_new_liquidity / ( POOL_new_liquidity + POOL_cur_liquidity ) }
-            
-            cf. PPT 11p
-        */
-
-
-		return true;
+	function addLiquidity() public payable returns (uint256) {
+	    uint256 amount = msg.value;
+	    require(msg.value > 0, "Viewdefi: Insufficient Amount");
+	    
+	    uint256 totalLiquidity = totalSupply;
+	    if(totalLiquidity > 0) {
+	        uint256 current_supply = address(this).balance - msg.value;
+	        uint256 new_supply = address(this).balance;
+	        uint256 liquidity_minted = (MAX_LIQUIDITY - totalLiquidity) * (new_supply / (new_supply - current_supply));
+	        
+	        lp_tokenOf[_msgSender()].amount = lp_tokenOf[_msgSender()].amount.add(liquidity_minted);
+	        lp_tokenOf[_msgSender()].issueTime = now;
+            balanceOf[_msgSender()] = balanceOf[_msgSender()].add(amount);
+            return liquidity_minted;
+	    } else {
+	        uint256 liquidity_minted = MINIMUM_LIQUIDITY;
+            lp_tokenOf[_msgSender()].amount =  lp_tokenOf[_msgSender()].amount.add(liquidity_minted);
+            lp_tokenOf[_msgSender()].issueTime = now;
+            balanceOf[_msgSender()] = balanceOf[_msgSender()].add(amount);
+            return liquidity_minted;
+	    }
 	}
 
-    function removeLiquidity(uint256 liquidity) public view returns (bool) {
-        _liquidity.sub(liquidity);
-        /* Called when LP tries to remove liquidity from the pool
-            1. Check if LP's lock-up period is over
-            2. Check if LP has enough LPT to return
-            3. Receive LPT from LP
-            4. Transfer collateral asset back to LP
-            5. Burn received LPT (Burn rate TBD)
-        */
-
-
-		return true;
-	}
-
-    /*
-        Future Work
-        func addExtraLiquidity
-        func removePartialLiquidity
-    */
-
-	function addPoolIndex(uint256 index) public onlyOwner(POOL_MANAGER) view returns (bool) {
-        /*  Called when PM (Pool Manager) tries to update Pool Index
-            The array maintains the last N indices
-        */
-
-
+    function removeLiquidity(uint256 amount) public view returns (bool) {
 		return true;
 	}
 
