@@ -1,8 +1,42 @@
 import { atom } from 'recoil'
+import moment from 'moment'
 import faker from 'faker'
 
-const TYPE_STAKING = 1;
-const TYPE_CRYPTO = 2;
+const TYPE_STAKING = 1
+const TYPE_CRYPTO = 2
+
+export const myPoolState = atom({
+    key: "myPoolState",
+    default: [{
+        poolIdx: 0,
+        liquidity: faker.random.number(15) + 10,
+        earnings: faker.random.number(10) / 100.0,
+        since: moment().subtract(2, 'days').format("YYYY-MM-DD"),
+        until: moment().add(1, 'years').format("YYYY-MM-DD")
+    },{
+        poolIdx: 1,
+        liquidity: faker.random.number(15) + 10,
+        earnings: faker.random.number(10) / 100.0,
+        since: moment().subtract(2, 'days').format("YYYY-MM-DD"),
+        until: moment().add(1, 'years').format("YYYY-MM-DD")
+    },{
+        poolIdx: 3,
+        liquidity: faker.random.number(15) + 10,
+        earnings: faker.random.number(10) / 100.0,
+        since: moment().subtract(2, 'days').format("YYYY-MM-DD"),
+        until: moment().add(1, 'years').format("YYYY-MM-DD")
+    },{
+        poolIdx: 4,
+        liquidity: faker.random.number(15) + 10,
+        earnings: faker.random.number(10) / 100.0,
+        since: moment().subtract(2, 'days').format("YYYY-MM-DD"),
+        until: moment().add(1, 'years').format("YYYY-MM-DD")
+    }]
+})
+
+export const myInsuranceState = atom([
+
+])
 
 export const poolListState = atom({
     key: "poolListState",
@@ -34,7 +68,7 @@ export const poolListState = atom({
         },
         type: TYPE_CRYPTO
     },{
-        idx: 1,
+        idx: 2,
         name: "TOP 10 CRYPTO INDEX",
         assets: ["Bitcoin", "Ethereum", "Polkadot", "XRP", "Cardano", "Litecoin", "Bitcoin Cash", "Chainlink", "Stellar", "BNB"],
         symbol: "CI",
@@ -48,7 +82,7 @@ export const poolListState = atom({
         },
         type: TYPE_CRYPTO
     },{
-        idx: 2,
+        idx: 3,
         name: "Ethereum",
         icon: "ethereum",
         theme: "white",
@@ -61,7 +95,7 @@ export const poolListState = atom({
         },
         type: TYPE_CRYPTO
     },{
-        idx: 3,
+        idx: 4,
         name: "Cosmos(ATOM)",
         icon: "cosmos",
         theme: "dark",
@@ -74,7 +108,7 @@ export const poolListState = atom({
         },
         type: TYPE_CRYPTO
     },{
-        idx: 4,
+        idx: 5,
         name: "Chainlink",
         icon: "chainlink",
         theme: "dark",
@@ -87,7 +121,7 @@ export const poolListState = atom({
         },
         type: TYPE_CRYPTO
     },{
-        idx: 5,
+        idx: 6,
         name: "EOS",
         icon: "eos",
         theme: "white",
@@ -100,7 +134,7 @@ export const poolListState = atom({
         },
         type: TYPE_CRYPTO
     },{
-        idx: 6,
+        idx: 7,
         name: "Litecoin",
         icon: "litecoin",
         theme: "dark",
@@ -113,7 +147,7 @@ export const poolListState = atom({
         },
         type: TYPE_CRYPTO
     },{
-        idx: 7,
+        idx: 8,
         name: "Aave",
         icon: "aave",
         theme: "dark",

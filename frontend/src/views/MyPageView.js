@@ -1,38 +1,43 @@
 import React from 'react'
 import classnames from 'classnames'
+import { useRecoilValue } from 'recoil'
+import { myPoolState, poolListState } from '../core/state'
 
 const MyPageView = () => {
-    const PoolView = () => {
+    const myPoolList = useRecoilValue(myPoolState)
+    const poolList = useRecoilValue(poolListState)
+
+    const PoolView = ({ item, pool }) => {
         return (
             <li className="list-group-item">
                 <div className="row">
                     <div className="col-md-6">
-                        <h4>Pool: GANGNAM<span className="text-muted ml-2">2412.24 <span className="badge badge-soft-success badge-pill"><i className="tio-trending-up"></i> +23</span></span></h4>
+                        <h4>풀: {pool.name}<span className="text-muted ml-2">{pool.value} <span className="badge badge-soft-success badge-pill"><i className="tio-trending-up"></i> +3.25%</span></span></h4>
                     </div>
                     <div className="col-md-6 text-sm-right">
-                        <button type="button" className="btn btn-sm btn-danger">Remove Liquidity</button>
+                        <button type="button" className="btn btn-sm btn-danger">유동성 제거하기</button>
                     </div>
                 </div>
                 <div className="row mt-3">
                     <div className="col-md-2">
-                        <label className="input-label">Your Liquidity</label>
-                        <span>100 ETH</span>
+                        <label className="input-label">유동성</label>
+                        <span>{item.liquidity} ETH</span>
                     </div>
                     <div className="col-md-2">
-                        <label className="input-label">Since</label>
-                        <span>03-01-2021</span>
+                        <label className="input-label">시작일</label>
+                        <span>{item.since}</span>
                     </div>
                     <div className="col-md-2">
-                        <label className="input-label">Until</label>
-                        <span>03-02-2021</span>
+                        <label className="input-label">락업 기간</label>
+                        <span>{item.until}</span>
                     </div>
                     <div className="col-md-2">
-                        <label className="input-label">Earnings</label>
-                        <b className="text-primary">0.23 ETH</b>
+                        <label className="input-label">수익</label>
+                        <b className="text-primary">{item.earnings} ETH</b>
                     </div>
                     <div className="col-md-2">
-                        <label className="input-label">APY</label>
-                        <span className="text-success">23.00%</span>
+                        <label className="input-label">연이율</label>
+                        <span className="text-primary">{pool.apy}%</span>
                     </div>
                 </div>
             </li>
@@ -44,12 +49,12 @@ const MyPageView = () => {
             <li className="list-group-item">
                 <div className="row">
                     <div className="col-md-6">
-                        <h4>Pool: GANGNAM
+                        <h4>풀: GANGNAM
                             <span className={classnames(
                                 "badge",
                                 "ml-2",
                                 { "badge-soft-success": claimable, "badge-soft-secondary": !claimable }
-                            )}>{ claimable ? "Claimable" : "Unclaimable" }</span>
+                            )}>{ claimable ? "청구 가능" : "청구 불가능" }</span>
                         </h4>
                     </div>
                     <div className="col-md-6 text-right">
@@ -57,22 +62,26 @@ const MyPageView = () => {
                             classnames(
                                 "btn",
                                 "btn-sm",
-                                { "btn-success": claimable, "btn-outline-secondary": !claimable }
+                                { "btn-outline-success": claimable, "btn-outline-secondary": !claimable }
                             )
-                        } disabled={!claimable}>{ claimable ? "Claim Insurance" : "Disabled" }</button>
+                        } disabled={!claimable}>{ claimable ? "보험금 청구하기" : "비활성화" }</button>
                     </div>
                 </div>
                 <div className="row mt-3">
                     <div className="col-md-2">
-                        <label className="input-label">Current Index</label>
+                        <label className="input-label">현재 인덱스</label>
                         <span>234.3</span>
                     </div>
                     <div className="col-md-2">
-                        <label className="input-label">Target Index</label>
+                        <label className="input-label">목표 인덱스</label>
                         <span>200.0</span>
                     </div>
                     <div className="col-md-2">
-                        <label className="input-label">Insurance</label>
+                        <label className="input-label">보험 금액</label>
+                        <span className="text-primary">12.5 ETH</span>
+                    </div>
+                    <div className="col-md-2">
+                        <label className="input-label">보장 비용</label>
                         <span className="text-primary">12.5 ETH</span>
                     </div>
                 </div>
@@ -86,25 +95,26 @@ const MyPageView = () => {
                 <div className="col-lg-10 mb-3">
                     <div className="row">
                         <div className="col-md-6">
-                            <h3 className="page-header-title">My Pool</h3>
+                            <h3 className="page-header-title">내 풀</h3>
                         </div>
                         <div className="col-md-6 text-sm-right">
-                            <span className="text-muted">Total Earnings <b className="text-primary ml-2">1.23 ETH</b></span>
+                            <span className="text-muted">전체 수익 <b className="text-primary ml-2">0.75 ETH</b></span>
                         </div>
                     </div>
                 </div>
                 <div className="col-lg-10 mb-10">
                     <ul className="list-group">
-                        <PoolView />
-                        <PoolView />
-                        <PoolView />
-                        <PoolView />
+                        {
+                            myPoolList.map(x => {
+                                return (<PoolView key={"myPool" + x.poolIdx} item={x} pool={poolList[x.poolIdx]}/>)
+                            })
+                        }
                     </ul>
                 </div>
                 <div className="col-lg-10 mb-3 mt-5">
                     <div className="row">
                         <div className="col-md-12">
-                            <h3 className="page-header-title">My Insurances</h3>
+                            <h3 className="page-header-title">내 보험</h3>
                         </div>
                     </div>
                 </div>
