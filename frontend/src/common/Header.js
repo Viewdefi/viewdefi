@@ -49,20 +49,20 @@ const Header = () => {
                                     classnames("nav-link", {
                                         "active": location.pathname === '/'
                                     })
-                                } to="/">HOME</Link>
+                                } to="/">홈</Link>
                             </li>
                             <li className="nav-item">
                                 <Link className={
                                     classnames("nav-link", {
                                         "active": location.pathname === '/mypage'
                                     })
-                                } to="/mypage">My Page</Link>
+                                } to="/mypage">마이 페이지</Link>
                             </li>
                             <li className="nav-item">
                                 { !active && (
                                     <button className="btn btn-sm btn-primary ml-3 btn-wallet-connect" onClick={() => connectToWallet()}>
                                         <i className="tio-wallet-outlined mr-2"></i>
-                                        Connect
+                                        지갑 연결하기
                                     </button>
                                 ) }
                                 { active && (

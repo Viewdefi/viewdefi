@@ -1,7 +1,6 @@
 import React from 'react'
 import { Web3ReactProvider } from '@web3-react/core'
 import { providers } from 'ethers'
-import Web3 from 'web3'
 
 import {
     BrowserRouter as Router,
@@ -13,9 +12,8 @@ import {
 import Header from './common/Header';
 import Footer from './common/Footer';
 import HomeView from './views/HomeView';
-import AddLiquidityView from './views/AddLiquidityView';
-import BuyInsuranceView from './views/BuyInsuranceView';
 import MyPageView from './views/MyPageView';
+import DetailView from './views/DetailView';
 
 function getLibrary(provider) {
     const library = new providers.Web3Provider(provider)
@@ -33,11 +31,8 @@ const App = () => {
                         <Route path="/mypage">
                             <MyPageView />
                         </Route>
-                        <Route path="/add/liquidity">
-                            <AddLiquidityView />
-                        </Route>
-                        <Route path="/buy/insurance">
-                            <BuyInsuranceView />
+                        <Route path="/detail/:id">
+                            <DetailView />
                         </Route>
                         <Route path="/">
                             <HomeView />

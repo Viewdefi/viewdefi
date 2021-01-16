@@ -1,6 +1,17 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { useRouteMatch } from 'react-router-dom'
+import { useRecoilValue } from 'recoil'
+import { poolListState } from '../core/state'
 
-const BuyInsuranceView = () => {
+const DetailView = () => {
+    const poolList = useRecoilValue(poolListState)
+    const match = useRouteMatch("/detail/:id")
+    const [pool, setPool] = useState({})
+
+    useEffect(() => {
+        setPool(poolList[match.params.id])
+    }, [])
+
     return (
         <div className="container mt-5">
             <div className="row mt-15 mb-15 justify-content-md-center">
@@ -74,4 +85,4 @@ const BuyInsuranceView = () => {
     )
 }
 
-export default BuyInsuranceView
+export default DetailView

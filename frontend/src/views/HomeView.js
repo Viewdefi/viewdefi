@@ -34,10 +34,7 @@ const HomeView = () => {
                     <div className="card-footer">
                         <div className="row justify-content-between align-items-center">
                             <div className="col-md-12">
-                                <Link to="/buy/insurance" className="btn btn-block btn-outline-secondary">Buy Insurance</Link>
-                            </div>
-                            <div className="col-md-12">
-                                <Link to="/add/liquidity" className="btn btn-block btn-outline-secondary mt-2">Provide Liquidity</Link>
+                                <Link to="/detail/:id" className="btn btn-block btn-outline-secondary">상세히 보기</Link>
                             </div>
                         </div>
                     </div>
@@ -52,17 +49,17 @@ const HomeView = () => {
                 <div className="col-lg-10 mt-2">
                     <div className="row">
                         <div className="col-md-6">
-                            <h3>Pool List</h3>
+                            <h3>풀 리스트</h3>
                         </div>
                         <div className="col-md-6 text-right">
-                            <button type="button" className="btn btn-sm btn-danger"><i className="tio-add mr-1"></i>Create a new pool</button>
+                            <button type="button" className="btn btn-sm btn-danger"><i className="tio-add mr-1"></i>신규 풀 생성</button>
                         </div>
                     </div>
                 </div>
                 <div className="col-lg-10 mt-3">
                     <div className="row">
                         <div className="col-lg-12">
-                            <h5 className="text-muted">Staking Lock</h5>
+                            <h5 className="text-muted">지분 락업 보험</h5>
                         </div>
                     </div>
                     <div className="row">
@@ -78,7 +75,7 @@ const HomeView = () => {
                 <div className="col-lg-10 mt-10">
                     <div className="row">
                         <div className="col-lg-12">
-                            <h5 className="text-muted">Crypto Currency</h5>
+                            <h5 className="text-muted">암호화폐 보험</h5>
                         </div>
                     </div>
                     <div className="row">
