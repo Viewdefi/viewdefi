@@ -56,7 +56,7 @@ const Header = () => {
                                     classnames("nav-link", {
                                         "active": location.pathname === '/mypage'
                                     })
-                                } to="/mypage">마이 페이지</Link>
+                                } to="/mypage">마이페이지</Link>
                             </li>
                             <li className="nav-item">
                                 { !active && (
