@@ -10,7 +10,7 @@ const MyPageView = () => {
                         <h4>Pool: GANGNAM<span className="text-muted ml-2">2412.24 <span className="badge badge-soft-success badge-pill"><i className="tio-trending-up"></i> +23</span></span></h4>
                     </div>
                     <div className="col-md-6 text-sm-right">
-                        <button type="button" className="btn btn-sm btn-danger float-end">Remove Liquidity</button>
+                        <button type="button" className="btn btn-sm btn-danger">Remove Liquidity</button>
                     </div>
                 </div>
                 <div className="row mt-3">
@@ -52,12 +52,11 @@ const MyPageView = () => {
                             )}>{ claimable ? "Claimable" : "Unclaimable" }</span>
                         </h4>
                     </div>
-                    <div className="col-md-6">
+                    <div className="col-md-6 text-right">
                         <button type="button" className={
                             classnames(
                                 "btn",
                                 "btn-sm",
-                                "float-end",
                                 { "btn-success": claimable, "btn-outline-secondary": !claimable }
                             )
                         } disabled={!claimable}>{ claimable ? "Claim Insurance" : "Disabled" }</button>
@@ -89,8 +88,8 @@ const MyPageView = () => {
                         <div className="col-md-6">
                             <h3 className="page-header-title">My Pool</h3>
                         </div>
-                        <div className="col-md-6">
-                            <span className="text-muted float-end">Total Earnings <b className="text-primary ml-2">1.23 ETH</b></span>
+                        <div className="col-md-6 text-sm-right">
+                            <span className="text-muted">Total Earnings <b className="text-primary ml-2">1.23 ETH</b></span>
                         </div>
                     </div>
                 </div>

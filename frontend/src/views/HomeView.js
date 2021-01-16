@@ -1,36 +1,11 @@
 import React, { useState } from 'react'
+import classnames from 'classnames'
+import { useRecoilValue } from 'recoil'
 import { Link } from 'react-router-dom'
+import { poolListState } from '../core/state'
 
 const HomeView = () => {
-    const [poolList, setPoolList] = useState([{
-        name: "BITCOIN",
-        icon: "bitcoin",
-        theme: "dark"
-    },{
-        name: "Ethereum",
-        icon: "ethereum",
-        theme: "white"
-    },{
-        name: "Cosmos(ATOM)",
-        icon: "cosmos",
-        theme: "dark"
-    },{
-        name: "Chainlink",
-        icon: "chainlink",
-        theme: "dark"
-    },{
-        name: "EOS",
-        icon: "eos",
-        theme: "white"
-    },{
-        name: "Litecoin",
-        icon: "litecoin",
-        theme: "dark"
-    },{
-        name: "Aave",
-        icon: "aave",
-        theme: "dark"
-    }])
+    const poolList = useRecoilValue(poolListState)
 
     const PoolView = ({ item }) => {
         return (
@@ -43,7 +18,17 @@ const HomeView = () => {
                         </div>
                         <h4 className="mb-1 text-dark mt-3">{item.name} POOL</h4>
                         <div className="mb-2">
-                            <span className="badge badge-soft-danger badge-pill"><i className="tio-trending-down"></i> -23 index</span>
+                            <span className={classnames(
+                                "bdage",
+                                "badge-pill",
+                                { 
+                                    "badge-soft-danger": item.index < 0,
+                                    "badge-soft-success": item.index >= 0
+                                },
+                            )}><i className={classnames({
+                                "tio-trending-down": item.index < 0,
+                                "tio-trending-up": item.index >= 0
+                            })}></i> {item.index}</span>
                         </div>
                     </div>
                     <div className="card-footer">
@@ -81,17 +66,16 @@ const HomeView = () => {
                         </div>
                     </div>
                     <div className="row">
-                        <div className="col-lg-12">
-                            <PoolView 
-                                item={{
-                                    name: "ETH 2.0",
-                                    symbol: "E",
-                                    theme: "dark"
-                                }} />
-                        </div>
+                        <PoolView 
+                            item={{
+                                name: "ETH 2.0",
+                                symbol: "E",
+                                theme: "dark",
+                                index: 23
+                            }} />
                     </div>
                 </div>
-                <div className="col-lg-10 mt-3">
+                <div className="col-lg-10 mt-10">
                     <div className="row">
                         <div className="col-lg-12">
                             <h5 className="text-muted">Crypto Currency</h5>
