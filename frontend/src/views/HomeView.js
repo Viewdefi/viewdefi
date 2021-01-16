@@ -7,7 +7,7 @@ import { poolListState } from '../core/state'
 const HomeView = () => {
     const poolList = useRecoilValue(poolListState)
 
-    const PoolView = ({ item }) => {
+    const PoolView = ({ item, idx }) => {
         return (
             <div className="col-md-4 mt-4">
                 <div className="card">
@@ -22,19 +22,19 @@ const HomeView = () => {
                                 "bdage",
                                 "badge-pill",
                                 { 
-                                    "badge-soft-danger": item.index < 0,
-                                    "badge-soft-success": item.index >= 0
+                                    "badge-soft-danger": item.value < 0,
+                                    "badge-soft-success": item.value >= 0
                                 },
                             )}><i className={classnames({
-                                "tio-trending-down": item.index < 0,
-                                "tio-trending-up": item.index >= 0
-                            })}></i> {item.index}</span>
+                                "tio-trending-down": item.value < 0,
+                                "tio-trending-up": item.value >= 0
+                            })}></i> {item.value}</span>
                         </div>
                     </div>
                     <div className="card-footer">
                         <div className="row justify-content-between align-items-center">
                             <div className="col-md-12">
-                                <Link to="/detail/:id" className="btn btn-block btn-outline-secondary">상세히 보기</Link>
+                                <Link to={`/detail/${idx}`} className="btn btn-block btn-outline-secondary">상세히 보기</Link>
                             </div>
                         </div>
                     </div>
@@ -59,29 +59,27 @@ const HomeView = () => {
                 <div className="col-lg-10 mt-3">
                     <div className="row">
                         <div className="col-lg-12">
-                            <h5 className="text-muted">지분 락업 보험</h5>
-                        </div>
-                    </div>
-                    <div className="row">
-                        <PoolView 
-                            item={{
-                                name: "ETH 2.0",
-                                symbol: "E",
-                                theme: "dark",
-                                index: 23
-                            }} />
-                    </div>
-                </div>
-                <div className="col-lg-10 mt-10">
-                    <div className="row">
-                        <div className="col-lg-12">
                             <h5 className="text-muted">암호화폐 보험</h5>
                         </div>
                     </div>
                     <div className="row">
                         {
-                            poolList.map(x => {
-                                return (<PoolView item={x} />)
+                            poolList.filter(x => x.type === 2).map((x, index) => {
+                                return (<PoolView key={"pool" + x.idx} item={x} idx={x.idx} />)
+                            })
+                        }
+                    </div>
+                </div>
+                <div className="col-lg-10 mt-10">
+                    <div className="row">
+                        <div className="col-lg-12">
+                            <h5 className="text-muted">지분 락업 보험</h5>
+                        </div>
+                    </div>
+                    <div className="row">
+                        {
+                            poolList.filter(x => x.type === 1).map((x, index) => {
+                                return (<PoolView key={"pool" + x.idx} item={x} idx={x.idx} />)
                             })
                         }
                     </div>
