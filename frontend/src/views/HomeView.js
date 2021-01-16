@@ -59,7 +59,7 @@ const HomeView = () => {
                 <div className="col-lg-10 mt-3">
                     <div className="row">
                         <div className="col-lg-12">
-                            <h5 className="text-muted">암호화폐 보험</h5>
+                            <h5 className="text-muted">보험 풀</h5>
                         </div>
                     </div>
                     <div className="row">

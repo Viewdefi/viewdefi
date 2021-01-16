@@ -5,6 +5,7 @@ import { poolListState } from '../core/state'
 import PoolChart from './comps/PoolChart'
 import PoolInfoComp from './comps/PoolInfoComp'
 import InsuranceTableComp from './comps/InsuranceTableComp'
+import InsuranceProductComp from './comps/InsuranceProductComp'
 
 const DetailView = () => {
     const poolList = useRecoilValue(poolListState)
@@ -31,6 +32,14 @@ const DetailView = () => {
                         <div className="col-lg-12 mt-3">
                             <div className="card">
                                 <div className="card-header">
+                                    <h4 className="card-title">보험 상품</h4>
+                                </div>
+                                <InsuranceProductComp />
+                            </div>
+                        </div>
+                        <div className="col-lg-12 mt-3">
+                            <div className="card">
+                                <div className="card-header">
                                     <h4 className="card-title">풀 사용 내역</h4>
                                 </div>
                                 <InsuranceTableComp />
@@ -46,7 +55,17 @@ const DetailView = () => {
                                     <h4 className="card-title text-muted">유동성 참여하기</h4>
                                 </div>
                                 <div className="card-body">
-                                    Test    
+                                    <div className="row form-group">
+                                        <div className="col-lg-6 form-col-label">참여 수량</div>
+                                        <div className="col-lg-6 form-col-label text-right">지갑 잔액: 5 ETH</div>
+                                        <div className="col-lg-12">
+                                            <input 
+                                                type="text"  
+                                                className="form-control form-control-borderless form-control-flush"
+                                                placeholder="0 ETH" />
+                                        </div>
+                                    </div>
+                                    <button type="button" className="btn btn-block btn-sm btn-soft-primary">유동성 참여하기</button>
                                 </div>
                             </div>
                         </div>
@@ -58,7 +77,34 @@ const DetailView = () => {
                                     <h4 className="card-title text-muted">보험 가입하기</h4>
                                 </div>
                                 <div className="card-body">
-                                    Test    
+                                    <div className="row form-group">
+                                        <div className="col-lg-12 form-col-label">목표 지수</div>
+                                        <div className="col-lg-12">
+                                            <input 
+                                                type="text"  
+                                                className="form-control form-control-borderless form-control-flush"
+                                                placeholder="0" />
+                                        </div>
+                                    </div>
+                                    <div className="row form-group">
+                                        <div className="col-lg-12 form-col-label">청구 금액</div>
+                                        <div className="col-lg-12">
+                                            <input 
+                                                type="text"  
+                                                className="form-control form-control-borderless form-control-flush"
+                                                placeholder="0 ETH" />
+                                        </div>
+                                    </div>
+                                    <div className="row form-group">
+                                        <div className="col-lg-12 form-col-label">만기일</div>
+                                        <div className="col-lg-12">
+                                            <input 
+                                                type="text"  
+                                                className="form-control form-control-borderless form-control-flush"
+                                                placeholder="YYYY/MM/DD" />
+                                        </div>
+                                    </div>
+                                    <button type="button" className="btn btn-block btn-sm btn-outline-primary">보험 가입하기</button>
                                 </div>
                             </div>
                         </div>

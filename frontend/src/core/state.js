@@ -21,11 +21,25 @@ export const poolListState = atom({
         type: TYPE_STAKING
     },{
         idx: 1,
+        name: "강남구",
+        assets: ["방배동", "신사동", "논현동", "개포동", "대치동", "역삼동", "세곡동", "수서동", "일원동"],
+        symbol: "GN",
+        theme: "dark",
+        value: 6604.98,
+        apy: faker.random.number(100) + 10,
+        liquidity: {
+            users: faker.random.number(1000),
+            providers: faker.random.number(1000),
+            value: faker.random.number(1000)
+        },
+        type: TYPE_CRYPTO
+    },{
+        idx: 1,
         name: "TOP 10 CRYPTO INDEX",
         assets: ["Bitcoin", "Ethereum", "Polkadot", "XRP", "Cardano", "Litecoin", "Bitcoin Cash", "Chainlink", "Stellar", "BNB"],
         symbol: "CI",
         theme: "dark",
-        value: faker.random.number(1000000),
+        value: 6604.98,
         apy: faker.random.number(100) + 10,
         liquidity: {
             users: faker.random.number(1000),

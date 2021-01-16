@@ -256,7 +256,7 @@ const PoolChart = ({ pool }) => {
                     height: 350
                 },
                 title: {
-                    text: `${pool.name} INDEX`,
+                    text: `${pool.name}`,
                     align: 'left'
                 },
                 xaxis: {
