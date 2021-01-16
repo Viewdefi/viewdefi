@@ -4,7 +4,7 @@ const AddLiquidityView = () => {
     return (
         <div className="container mt-5">
             <div className="row mt-15 mb-15 justify-content-md-center">
-                <div className="col-lg-5">
+                <div className="col-lg-8">
                     <div className="card">
                         <div className="card-header">
                             <h4 className="card-title">0x1234....12883</h4>
@@ -47,11 +47,11 @@ const AddLiquidityView = () => {
                                 </div>
                                 <input 
                                     type="text" 
-                                    className="form-control mt-2" 
+                                    className="form-control form-control-lg mt-2" 
                                     placeholder="0 ETH" />
                             </div>
                             <div className="form-group">
-                                <button type="submit" className="btn btn-block btn-primary mt-2">Add Liquidity</button>
+                                <button type="submit" className="btn btn-lg btn-block btn-primary mt-2">Add Liquidity</button>
                             </div>
                         </div>
                         <div className="card-footer bg-light">
@@ -59,8 +59,8 @@ const AddLiquidityView = () => {
                                 <div className="col-md-6">
                                     <label className="input-label font-size-sm">Expected LP Token</label>
                                 </div>
-                                <div className="col-md-6 text-right">
-                                    <span className="font-size-sm">120 LP</span>
+                                <div className="col-md-6">
+                                    <span className="font-size-sm float-end">120 LP</span>
                                 </div>
                             </div>
                         </div>

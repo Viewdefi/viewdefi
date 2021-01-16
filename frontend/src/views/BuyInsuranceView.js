@@ -4,7 +4,7 @@ const BuyInsuranceView = () => {
     return (
         <div className="container mt-5">
             <div className="row mt-15 mb-15 justify-content-md-center">
-                <div className="col-lg-5">
+                <div className="col-lg-8">
                     <div className="card">
                         <div className="card-header">
                             <h4 className="card-title">0x1234....12883</h4>
@@ -40,14 +40,14 @@ const BuyInsuranceView = () => {
                                 <label className="input-label">Target Index</label>
                                 <input 
                                     type="text" 
-                                    className="form-control mt-1" 
+                                    className="form-control form-control-lg mt-1" 
                                     placeholder="0" />
                             </div>
                             <div className="form-group mt-3">
                                 <label className="input-label">Target Value</label>
                                 <input 
                                     type="text" 
-                                    className="form-control mt-1" 
+                                    className="form-control form-control-lg mt-1" 
                                     placeholder="0 ETH" />
                             </div>
                             <div className="form-group mt-3">
@@ -61,11 +61,11 @@ const BuyInsuranceView = () => {
                                 </div>
                                 <input 
                                     type="text" 
-                                    className="form-control" 
+                                    className="form-control form-control-lg" 
                                     disabled={true}
                                     placeholder="0 ETH" />
                             </div>
-                            <button type="submit" className="btn btn-block btn-primary mt-3">Buy Insurance</button>
+                            <button type="submit" className="btn btn-lg btn-block btn-primary mt-3">Buy Insurance</button>
                         </div>
                     </div>
                 </div>
