@@ -88,7 +88,7 @@ Node.js와 같은 스타일로 조립형으로 손쉽게 이용 가능한 웹 �
 이더리움을 이용하면 개발사는 서버 비용을 줄일 수 있어서 프로젝트를 저비용으로 장기간 유지할 수 있습니다.<br />
 Solidity는 이더리움에서 지원하는 프로그래밍 언어로 '스마트 컨트랙트'라는 블록체인에서 실행되는 프로그램을 작성하는데 사용합니다.
 
-## 모바일 앱 캡처 화면
+## 모바일 앱 캡처 화면 (예선)
 | HomeScreen | LocationDetailScreen | ProvideLiquidityScreen |
 |:---:|:---:|:---:|
 |:---:|:---:|:---:|
@@ -99,3 +99,16 @@ Solidity는 이더리움에서 지원하는 프로그래밍 언어로 '스마트
 | RegisterDetailScreen | RegisterInsuranceScreen | - |
 |:---:|:---:|:---:|
 |![RegisterDetailScreen](./images/RegisterDetailScreen.png) |![RegisterInsuranceScreen](./images/RegisterInsuranceScreen.png)| - |
+
+## 웹 어플리케이션 캡쳐 화면 (본선)
+| HomeView |
+|:---:|
+|![HomeView](./images/web_01.png)|
+| DetailView |
+|:---:|
+|![DetailView](./images/web_02.png)|
+|:---:|
+|![DetailView](./images/web_03.png)|
+| MyPageView |
+|:---:|
+|![MyPpageView](./images/web_04.png)|
