@@ -2,6 +2,7 @@
 한화 드림인 블록체인 해커톤 공모작 <br />
 **지역별 인덱스를 이용한 자동화된 부동산 보험/투자 인슈어테크 서비스**
 * [한화 드림인 블록체인 해커톤 소개](https://dreamin.career/academy/hackathon)
+* [Coindeskkorea - 한화 드림인 블록체인 해커톤, 최우수상 2팀 선정](http://www.coindeskkorea.com/news/articleView.html?idxno=72544)
 
 ## Viewdefi 소개
 ![Viewdefi](./images/viewdefi.png)
